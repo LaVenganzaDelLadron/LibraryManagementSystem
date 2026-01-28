@@ -17,3 +17,4 @@ C:\Users\Admin\Desktop\LibraryManagementSystem\obj\Debug\LibraryManagementSystem
 C:\Users\Admin\Desktop\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.HomePage.resources
 C:\Users\Admin\Desktop\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.StudentPage.resources
 C:\Users\Admin\Desktop\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.LogoutPage.resources
+C:\Users\Admin\Desktop\LibraryManagementSystem\obj\Debug\LibraryManagementSystem.view.modal.AddStudent.resources

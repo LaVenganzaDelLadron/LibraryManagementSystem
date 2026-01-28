@@ -49,66 +49,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookPage.cs">
+    <Compile Include="view\BookPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookPage.Designer.cs">
+    <Compile Include="view\BookPage.Designer.cs">
       <DependentUpon>BookPage.cs</DependentUpon>
     </Compile>
     <Compile Include="controller\adminAuth\AuthService.cs" />
     <Compile Include="controller\adminAuth\PasswordHelper.cs" />
-    <Compile Include="Dashboard.cs">
+    <Compile Include="view\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
+    <Compile Include="view\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomePage.cs">
+    <Compile Include="view\HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomePage.Designer.cs">
+    <Compile Include="view\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="view\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="view\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogoutPage.cs">
+    <Compile Include="view\LogoutPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogoutPage.Designer.cs">
+    <Compile Include="view\LogoutPage.Designer.cs">
       <DependentUpon>LogoutPage.cs</DependentUpon>
     </Compile>
     <Compile Include="model\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Signup.cs">
+    <Compile Include="view\modal\AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Signup.Designer.cs">
+    <Compile Include="view\modal\AddStudent.Designer.cs">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Signup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentPage.cs">
+    <Compile Include="view\StudentPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentPage.Designer.cs">
+    <Compile Include="view\StudentPage.Designer.cs">
       <DependentUpon>StudentPage.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BookPage.resx">
+    <EmbeddedResource Include="view\BookPage.resx">
       <DependentUpon>BookPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="view\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomePage.resx">
+    <EmbeddedResource Include="view\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="view\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogoutPage.resx">
+    <EmbeddedResource Include="view\LogoutPage.resx">
       <DependentUpon>LogoutPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -121,10 +127,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Signup.resx">
+    <EmbeddedResource Include="view\modal\AddStudent.resx">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentPage.resx">
+    <EmbeddedResource Include="view\StudentPage.resx">
       <DependentUpon>StudentPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
