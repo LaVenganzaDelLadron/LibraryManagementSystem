@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\view"
   ],
-  "SelectedNode": "\\Signup.cs",
+  "SelectedNode": "\\view\\BookPage.cs",
   "PreviewInSolutionExplorer": false
 }

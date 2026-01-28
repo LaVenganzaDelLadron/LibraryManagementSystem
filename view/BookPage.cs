@@ -22,8 +22,9 @@ namespace LibraryManagementSystem
 
         private void InitializeDataGridView()
         {
-            // Clear existing columns
+            // Clear existing columnsaaaa
             dataGridViewBooks.Columns.Clear();
+            aaaaaa
 
             // Add columns
             dataGridViewBooks.Columns.Add("BookDetails", "Book Details");

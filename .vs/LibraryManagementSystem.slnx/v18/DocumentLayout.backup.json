@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\studentpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\studentpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\modal\\addstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\modal\\addstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\studentpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\studentpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\modal\\addstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\modal\\addstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\logoutpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\logoutpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\modal\\addstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\modal\\addstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\studentpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\studentpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\studentpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\studentpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,19 +47,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AddStudent.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\modal\\AddStudent.cs",
+              "RelativeDocumentMoniker": "view\\modal\\AddStudent.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\modal\\AddStudent.cs",
+              "RelativeToolTip": "view\\modal\\AddStudent.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAwwAwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T17:47:18.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "StudentPage.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\StudentPage.cs",
               "RelativeDocumentMoniker": "view\\StudentPage.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\StudentPage.cs",
               "RelativeToolTip": "view\\StudentPage.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAADwv2gAAABOAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAADwv2gAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-28T17:45:24.709Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "StudentPage.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\StudentPage.cs",
               "RelativeDocumentMoniker": "view\\StudentPage.cs",
@@ -67,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Dashboard.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\Dashboard.cs",
               "RelativeDocumentMoniker": "view\\Dashboard.cs",
@@ -79,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "LogoutPage.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\LogoutPage.cs",
               "RelativeDocumentMoniker": "view\\LogoutPage.cs",
@@ -91,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "AddStudent.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\modal\\AddStudent.cs",
               "RelativeDocumentMoniker": "view\\modal\\AddStudent.cs",
@@ -103,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Users.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\model\\Users.cs",
               "RelativeDocumentMoniker": "model\\Users.cs",
