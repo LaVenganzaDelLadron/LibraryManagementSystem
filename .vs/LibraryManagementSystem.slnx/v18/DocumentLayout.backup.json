@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\controller\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:controller\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\logoutpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:logoutpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\controller\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:controller\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\logoutpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:logoutpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\bookpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:bookpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,98 +22,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\controller\\AuthService.cs",
-              "RelativeDocumentMoniker": "controller\\AuthService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\controller\\AuthService.cs",
-              "RelativeToolTip": "controller\\AuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T15:43:56.401Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PasswordHelper.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\controller\\PasswordHelper.cs",
-              "RelativeDocumentMoniker": "controller\\PasswordHelper.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\controller\\PasswordHelper.cs",
-              "RelativeToolTip": "controller\\PasswordHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T15:43:55.44Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Users.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\model\\Users.cs",
-              "RelativeDocumentMoniker": "model\\Users.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\model\\Users.cs",
-              "RelativeToolTip": "model\\Users.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T00:29:18.869Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HomePage.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\HomePage.cs",
-              "RelativeDocumentMoniker": "HomePage.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\HomePage.cs [Design]",
-              "RelativeToolTip": "HomePage.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "Signup.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\Signup.cs",
+              "RelativeDocumentMoniker": "Signup.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\Signup.cs [Design]",
+              "RelativeToolTip": "Signup.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T15:38:27.528Z",
+              "WhenOpened": "2026-01-28T17:08:44.392Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BookPage.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\BookPage.cs",
-              "RelativeDocumentMoniker": "BookPage.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\BookPage.cs [Design]",
-              "RelativeToolTip": "BookPage.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "LogoutPage.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\LogoutPage.cs",
+              "RelativeDocumentMoniker": "LogoutPage.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\LogoutPage.cs",
+              "RelativeToolTip": "LogoutPage.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAlwBoAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T23:52:14.547Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Dashboard.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\Dashboard.cs",
-              "RelativeDocumentMoniker": "Dashboard.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\Dashboard.cs",
-              "RelativeToolTip": "Dashboard.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAkwDwAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T01:24:09.956Z",
+              "WhenOpened": "2026-01-28T17:07:42.774Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Dashboard.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\Dashboard.cs",
-              "RelativeDocumentMoniker": "Dashboard.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\Dashboard.cs [Design]",
-              "RelativeToolTip": "Dashboard.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "LogoutPage.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\LogoutPage.cs",
+              "RelativeDocumentMoniker": "LogoutPage.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\LogoutPage.cs [Design]",
+              "RelativeToolTip": "LogoutPage.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T00:50:08.94Z",
+              "WhenOpened": "2026-01-28T17:04:05.949Z",
               "EditorCaption": " [Design]"
             }
           ]

@@ -10,7 +10,8 @@ namespace LibraryManagementSystem
 
         HomePage home = new HomePage();
         BookPage book = new BookPage();
-
+        StudentPage student = new StudentPage();
+        LogoutPage logout = new LogoutPage();
 
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -66,6 +67,7 @@ namespace LibraryManagementSystem
             pnlNav.Height = btnStudent.Height;
             pnlNav.Top = btnStudent.Top;
             pnlNav.Left = btnStudent.Left;
+            LoadForm(student);
         }
 
         private void btnBorrowing_Click(object sender, EventArgs e)
@@ -80,6 +82,15 @@ namespace LibraryManagementSystem
             pnlNav.Height = btnReports.Height;
             pnlNav.Top = btnReports.Top;
             pnlNav.Left = btnReports.Left;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnLogout.Height;
+            pnlNav.Top = btnLogout.Top;
+            pnlNav.Left = btnLogout.Left;
+
+            logout.Show();
         }
     }
 }

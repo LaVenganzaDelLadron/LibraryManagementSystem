@@ -16,6 +16,8 @@ namespace LibraryManagementSystem.model
         public string Password { get; set; }
         public string ContactNo { get; set; }
         public string Department { get; set; }
+        public DateTime JoinDate { get; set; }
+
 
         public Users() { }
 
@@ -27,6 +29,24 @@ namespace LibraryManagementSystem.model
             Password = password;
         }
 
+
+        public Users(string userName, string firstName, string lastName, string email, string password, String contactNo, string department) 
+        {   
+            Id = Guid.NewGuid() ;
+            UserName = userName;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Password = password;
+            ContactNo = contactNo;
+            Department = department;
+            JoinDate = DateTime.Now;
+        }
+        
+        
+        
+        
+        
         public Users(Guid id, string firstName, string lastName, string userName, string email, string password, string contactNo, string department)
         {
             Id = id;

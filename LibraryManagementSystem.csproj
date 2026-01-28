@@ -55,8 +55,8 @@
     <Compile Include="BookPage.Designer.cs">
       <DependentUpon>BookPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="controller\AuthService.cs" />
-    <Compile Include="controller\PasswordHelper.cs" />
+    <Compile Include="controller\adminAuth\AuthService.cs" />
+    <Compile Include="controller\adminAuth\PasswordHelper.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +75,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogoutPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogoutPage.Designer.cs">
+      <DependentUpon>LogoutPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="model\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +89,12 @@
     </Compile>
     <Compile Include="Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentPage.Designer.cs">
+      <DependentUpon>StudentPage.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BookPage.resx">
       <DependentUpon>BookPage.cs</DependentUpon>
@@ -96,6 +108,9 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogoutPage.resx">
+      <DependentUpon>LogoutPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -108,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentPage.resx">
+      <DependentUpon>StudentPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -12,6 +12,8 @@ namespace LibraryManagementSystem
 {
     public partial class BookPage : Form
     {
+        private int _selectedRowIndex = -1;
+
         public BookPage()
         {
             InitializeComponent();
@@ -29,23 +31,14 @@ namespace LibraryManagementSystem
             dataGridViewBooks.Columns.Add("Inventory", "Inventory");
             dataGridViewBooks.Columns.Add("Status", "Status");
 
-            // Add Edit button column
-            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
-            editButtonColumn.Name = "Edit";
-            editButtonColumn.HeaderText = "Action";
-            editButtonColumn.Text = "Edit";
-            editButtonColumn.UseColumnTextForButtonValue = true;
-            editButtonColumn.Width = 80;
-            dataGridViewBooks.Columns.Add(editButtonColumn);
-
-            // Add Delete button column
-            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
-            deleteButtonColumn.Name = "Delete";
-            deleteButtonColumn.HeaderText = "";
-            deleteButtonColumn.Text = "Delete";
-            deleteButtonColumn.UseColumnTextForButtonValue = true;
-            deleteButtonColumn.Width = 80;
-            dataGridViewBooks.Columns.Add(deleteButtonColumn);
+            // Add Actions (three dots) column
+            DataGridViewButtonColumn actionsColumn = new DataGridViewButtonColumn();
+            actionsColumn.Name = "Actions";
+            actionsColumn.HeaderText = "Actions";
+            actionsColumn.Text = "...";
+            actionsColumn.UseColumnTextForButtonValue = true;
+            actionsColumn.Width = 60;
+            dataGridViewBooks.Columns.Add(actionsColumn);
 
             // Style the DataGridView
             dataGridViewBooks.EnableHeadersVisualStyles = false;
@@ -73,29 +66,43 @@ namespace LibraryManagementSystem
 
         private void dataGridViewBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Check if the click is on a button column
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewBooks.Columns["Actions"].Index)
             {
-                // Edit button clicked
-                if (e.ColumnIndex == dataGridViewBooks.Columns["Edit"].Index)
-                {
-                    string bookDetails = dataGridViewBooks.Rows[e.RowIndex].Cells["BookDetails"].Value.ToString();
-                    MessageBox.Show($"Edit book: {bookDetails}", "Edit Book", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Add your edit logic here
-                }
-                // Delete button clicked
-                else if (e.ColumnIndex == dataGridViewBooks.Columns["Delete"].Index)
-                {
-                    string bookDetails = dataGridViewBooks.Rows[e.RowIndex].Cells["BookDetails"].Value.ToString();
-                    DialogResult result = MessageBox.Show($"Are you sure you want to delete: {bookDetails}?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    
-                    if (result == DialogResult.Yes)
-                    {
-                        dataGridViewBooks.Rows.RemoveAt(e.RowIndex);
-                        MessageBox.Show("Book deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // Add your delete logic here (e.g., delete from database)
-                    }
-                }
+                _selectedRowIndex = e.RowIndex;
+                var cellRect = dataGridViewBooks.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                var menuPoint = dataGridViewBooks.PointToScreen(new Point(cellRect.Left, cellRect.Bottom));
+                contextMenuStripActions.Show(menuPoint);
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedRowIndex < 0)
+            {
+                return;
+            }
+
+            string bookDetails = dataGridViewBooks.Rows[_selectedRowIndex].Cells["BookDetails"].Value.ToString();
+            MessageBox.Show($"Edit book: {bookDetails}", "Edit Book", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Add your edit logic here
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedRowIndex < 0)
+            {
+                return;
+            }
+
+            string bookDetails = dataGridViewBooks.Rows[_selectedRowIndex].Cells["BookDetails"].Value.ToString();
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete: {bookDetails}?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                dataGridViewBooks.Rows.RemoveAt(_selectedRowIndex);
+                _selectedRowIndex = -1;
+                MessageBox.Show("Book deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Add your delete logic here (e.g., delete from database)
             }
         }
     }
