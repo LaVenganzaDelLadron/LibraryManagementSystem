@@ -1,8 +1,10 @@
-﻿using System;
+﻿using LibraryManagementSystem.enumerator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LibraryManagementSystem.model
 {
@@ -17,6 +19,7 @@ namespace LibraryManagementSystem.model
         public string ContactNo { get; set; }
         public string Department { get; set; }
         public DateTime JoinDate { get; set; }
+        public UserStatus Status { get; set; } = UserStatus.Active;
 
 
         public Users() { }
@@ -30,7 +33,7 @@ namespace LibraryManagementSystem.model
         }
 
 
-        public Users(string userName, string firstName, string lastName, string email, string password, String contactNo, string department) 
+        public Users(string userName, string firstName, string lastName, string email, string password, String contactNo, string department, UserStatus status = UserStatus.Active) 
         {   
             Id = Guid.NewGuid() ;
             UserName = userName;
@@ -41,6 +44,7 @@ namespace LibraryManagementSystem.model
             ContactNo = contactNo;
             Department = department;
             JoinDate = DateTime.Now;
+            Status = status;
         }
         
         

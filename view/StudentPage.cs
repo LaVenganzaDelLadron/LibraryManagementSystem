@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem.view.modal;
+﻿using LibraryManagementSystem.controller.studentRegistration;
+using LibraryManagementSystem.view.modal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace LibraryManagementSystem
     {
         AddStudent addStudent = new AddStudent();
         private int _selectedRowIndex = -1;
+        private StudentRegistration _studentRegistration = new StudentRegistration();
 
         public StudentPage()
         {
@@ -30,6 +32,7 @@ namespace LibraryManagementSystem
             dataGridViewStudents.Columns.Add("Email", "Email");
             dataGridViewStudents.Columns.Add("ContactNumber", "Contact Number");
             dataGridViewStudents.Columns.Add("JoinDate", "Join Date");
+            dataGridViewStudents.Columns.Add("Status", "Status");
 
             DataGridViewButtonColumn actionsColumn = new DataGridViewButtonColumn();
             actionsColumn.Name = "Actions";
@@ -48,15 +51,32 @@ namespace LibraryManagementSystem
             dataGridViewStudents.DefaultCellStyle.SelectionBackColor = Color.FromArgb(41, 128, 185);
             dataGridViewStudents.DefaultCellStyle.SelectionForeColor = Color.White;
 
-            AddSampleStudentData();
+            LoadStudentData();
+        }
+
+        private void LoadStudentData()
+        {
+            dataGridViewStudents.Rows.Clear();
+            var students = _studentRegistration.GetAllStudents();
+
+            foreach (var student in students)
+            {
+                dataGridViewStudents.Rows.Add(
+                    student.FirstName + " " + student.LastName,
+                    student.Email,
+                    student.ContactNo,
+                    student.JoinDate.ToString("yyyy-MM-dd"),
+                    student.Status.ToString()
+                );
+            }
         }
 
         private void AddSampleStudentData()
         {
-            dataGridViewStudents.Rows.Add("Amina Yusuf", "amina.yusuf@email.com", "+234 801 234 5678", "2025-09-12");
-            dataGridViewStudents.Rows.Add("David Mensah", "david.mensah@email.com", "+233 24 123 4567", "2025-10-02");
-            dataGridViewStudents.Rows.Add("Grace Njeri", "grace.njeri@email.com", "+254 712 345 678", "2025-11-18");
-            dataGridViewStudents.Rows.Add("Samuel Okoro", "samuel.okoro@email.com", "+234 809 876 5432", "2026-01-05");
+            dataGridViewStudents.Rows.Add("Amina Yusuf", "amina.yusuf@email.com", "+234 801 234 5678", "2025-09-12", "Active");
+            dataGridViewStudents.Rows.Add("David Mensah", "david.mensah@email.com", "+233 24 123 4567", "2025-10-02", "Active");
+            dataGridViewStudents.Rows.Add("Grace Njeri", "grace.njeri@email.com", "+254 712 345 678", "2025-11-18", "Active");
+            dataGridViewStudents.Rows.Add("Samuel Okoro", "samuel.okoro@email.com", "+234 809 876 5432", "2026-01-05", "Active");
         }
 
         private void dataGridViewStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -122,7 +142,11 @@ namespace LibraryManagementSystem
 
         private void btnStudent_Click(object sender, EventArgs e)
         {
-            addStudent.ShowDialog();
+            addStudent = new AddStudent();
+            if (addStudent.ShowDialog() == DialogResult.OK)
+            {
+                LoadStudentData();
+            }
         }
     }
 }

@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCategory = new System.Windows.Forms.Button();
+            this.btnBook = new System.Windows.Forms.Button();
             this.dataGridViewBooks = new System.Windows.Forms.DataGridView();
-            this.contextMenuStripActions = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStripActions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
+            this.contextMenuStripActions.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -58,25 +60,27 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "boook is always right";
             // 
-            // button1
+            // btnCategory
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(856, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 51);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Category";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCategory.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCategory.Location = new System.Drawing.Point(856, 17);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(147, 51);
+            this.btnCategory.TabIndex = 2;
+            this.btnCategory.Text = "Category";
+            this.btnCategory.UseVisualStyleBackColor = false;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
-            // button2
+            // btnBook
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(856, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 51);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Add New Book";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnBook.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnBook.Location = new System.Drawing.Point(856, 74);
+            this.btnBook.Name = "btnBook";
+            this.btnBook.Size = new System.Drawing.Size(147, 51);
+            this.btnBook.TabIndex = 3;
+            this.btnBook.Text = "Add New Book";
+            this.btnBook.UseVisualStyleBackColor = false;
+            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
             // dataGridViewBooks
             // 
@@ -96,23 +100,24 @@
             // 
             // contextMenuStripActions
             // 
+            this.contextMenuStripActions.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStripActions.Name = "contextMenuStripActions";
-            this.contextMenuStripActions.Size = new System.Drawing.Size(118, 52);
+            this.contextMenuStripActions.Size = new System.Drawing.Size(123, 52);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -122,14 +127,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 708);
             this.Controls.Add(this.dataGridViewBooks);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBook);
+            this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BookPage";
             this.Text = "BookPage";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).EndInit();
+            this.contextMenuStripActions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,8 +145,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCategory;
+        private System.Windows.Forms.Button btnBook;
         private System.Windows.Forms.DataGridView dataGridViewBooks;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripActions;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;

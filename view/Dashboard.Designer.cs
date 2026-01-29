@@ -250,7 +250,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.pictureBox4);
-            this.panel3.Location = new System.Drawing.Point(1076, 12);
+            this.panel3.Location = new System.Drawing.Point(1042, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(67, 41);
             this.panel3.TabIndex = 4;
@@ -269,7 +269,7 @@
             // 
             this.lblAdmin.AutoSize = true;
             this.lblAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdmin.Location = new System.Drawing.Point(1146, 15);
+            this.lblAdmin.Location = new System.Drawing.Point(1112, 15);
             this.lblAdmin.Name = "lblAdmin";
             this.lblAdmin.Size = new System.Drawing.Size(86, 29);
             this.lblAdmin.TabIndex = 5;

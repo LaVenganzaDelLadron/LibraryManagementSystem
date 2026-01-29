@@ -96,9 +96,10 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Location = new System.Drawing.Point(70, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 27);
+            this.label2.Size = new System.Drawing.Size(48, 27);
             this.label2.TabIndex = 2;
-            this.label2.Text = "00";
+            this.label2.Text = "100";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -118,9 +119,10 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Location = new System.Drawing.Point(70, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 27);
+            this.label3.Size = new System.Drawing.Size(48, 27);
             this.label3.TabIndex = 2;
-            this.label3.Text = "00";
+            this.label3.Text = "253";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -152,7 +154,8 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 27);
             this.label5.TabIndex = 2;
-            this.label5.Text = "00";
+            this.label5.Text = "43";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -182,9 +185,9 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Location = new System.Drawing.Point(70, 85);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 27);
+            this.label7.Size = new System.Drawing.Size(24, 27);
             this.label7.TabIndex = 2;
-            this.label7.Text = "00";
+            this.label7.Text = "5";
             // 
             // label8
             // 
@@ -216,7 +219,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(36, 27);
             this.label9.TabIndex = 2;
-            this.label9.Text = "00";
+            this.label9.Text = "12";
             // 
             // label10
             // 

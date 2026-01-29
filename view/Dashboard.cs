@@ -7,6 +7,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Linq;
+using LibraryManagementSystem.view;
 
 namespace LibraryManagementSystem
 {
@@ -16,6 +17,8 @@ namespace LibraryManagementSystem
         HomePage home = new HomePage();
         BookPage book = new BookPage();
         StudentPage student = new StudentPage();
+        BorrowingPage borrowing = new BorrowingPage();
+        ReportPage report = new ReportPage();
         LogoutPage logout = new LogoutPage();
 
 
@@ -36,6 +39,12 @@ namespace LibraryManagementSystem
             InitializeComponent();
             lblAdmin.Text = getUsernameFromJson();
             LoadForm(new HomePage());
+
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+
+
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
         }
 
@@ -98,6 +107,7 @@ namespace LibraryManagementSystem
             pnlNav.Height = btnBorrowing.Height;
             pnlNav.Top = btnBorrowing.Top;
             pnlNav.Left = btnBorrowing.Left;
+            LoadForm(borrowing);
         }
 
         private void btnReports_Click(object sender, EventArgs e)
@@ -105,6 +115,8 @@ namespace LibraryManagementSystem
             pnlNav.Height = btnReports.Height;
             pnlNav.Top = btnReports.Top;
             pnlNav.Left = btnReports.Left;
+
+            LoadForm(report);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
