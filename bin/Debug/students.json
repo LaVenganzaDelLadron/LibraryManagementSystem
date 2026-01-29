@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "d13e5485-f4ee-4ee5-8c07-b98550f89d20",
+    "FirstName": "Elton John",
+    "LastName": "Justaga",
+    "UserName": "DarkGlitch",
+    "Email": "eltonofficial403@gmail.com",
+    "Password": "USHklgodAVJ2EUHJB64K2MT6YXc8FYMH04H395wt4aU=",
+    "ContactNo": "09457601053",
+    "Department": "BSIT",
+    "JoinDate": "2026-01-29T08:44:43.2688462+08:00",
+    "Status": 1
+  },
+  {
+    "Id": "23023247-5f60-4760-a673-8e474e0117ef",
+    "FirstName": "df",
+    "LastName": "asd",
+    "UserName": "asd",
+    "Email": "asd",
+    "Password": "UOch5JwBPwDGLPWfIWNUKp2N8CRk7+thXTEFGw/dwyY=",
+    "ContactNo": "sd",
+    "Department": "BSIT",
+    "JoinDate": "2026-01-29T08:50:20.43154+08:00",
+    "Status": 1
+  },
+  {
+    "Id": "d09c44aa-1eb0-448b-aabb-c6bdf27d19ac",
+    "FirstName": "xczxcs",
+    "LastName": "asdasd",
+    "UserName": "asdsdfsdf",
+    "Email": "asdasdssdfd",
+    "Password": "X9kkYl9qsWoZzJgHx8UGrhgTSQ5LpnX4Q9WhDguqzbg=",
+    "ContactNo": "qeasd",
+    "Department": "asdaxcx",
+    "JoinDate": "2026-01-29T11:04:09.4304075+08:00",
+    "Status": 1
+  },
+  {
+    "Id": "fb479ffe-e846-4c1b-bc8a-a41828ca7928",
+    "FirstName": "dafsd",
+    "LastName": "asdas",
+    "UserName": "adasd",
+    "Email": "fsdf",
+    "Password": "AwQs+BANs4aBjO5P8PKXJDGmLteO29CawIrM+rvv2Bg=",
+    "ContactNo": "23212314134",
+    "Department": "asdasd",
+    "JoinDate": "2026-01-29T11:16:32.1108165+08:00",
+    "Status": 1
+  },
+  {
+    "Id": "6d4858be-4f6a-45c2-b991-1c9266bf996f",
+    "FirstName": "a",
+    "LastName": "asd",
+    "UserName": "asdcvsdv",
+    "Email": "asdvd",
+    "Password": "knn6ajFPsHKPfP2TZpz381zAG2OJ/SIGZJGfRVswcgM=",
+    "ContactNo": "34321",
+    "Department": "34",
+    "JoinDate": "2026-01-29T11:16:48.1683673+08:00",
+    "Status": 1
+  },
+  {
+    "Id": "3550c432-5a32-4f0e-9a56-e870abc01d91",
+    "FirstName": "adfasd",
+    "LastName": "asdac",
+    "UserName": "dvvxcv",
+    "Email": "dfgdfb",
+    "Password": "wDZ0ZOMGWvIx4je9IV8zI6e+mEVd0tNCLDsyw4r3wIc=",
+    "ContactNo": "23434",
+    "Department": "asc",
+    "JoinDate": "2026-01-29T11:18:54.0286007+08:00",
+    "Status": 1
+  }
+]

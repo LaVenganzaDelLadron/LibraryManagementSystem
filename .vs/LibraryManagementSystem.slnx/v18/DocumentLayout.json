@@ -1,0 +1,124 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\controller\\book\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:controller\\book\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\controller\\student\\studentregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:controller\\student\\studentregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\model\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:model\\books.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\modal\\addbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\modal\\addbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\bookpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\bookpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|c:\\users\\admin\\desktop\\librarymanagementsystem\\view\\modal\\addbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E466FB91-C4DC-4A83-825B-A729F942DF5B}|LibraryManagementSystem.csproj|solutionrelative:view\\modal\\addbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\controller\\book\\BookService.cs",
+              "RelativeDocumentMoniker": "controller\\book\\BookService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\controller\\book\\BookService.cs",
+              "RelativeToolTip": "controller\\book\\BookService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T03:02:08.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddBook.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\modal\\AddBook.cs",
+              "RelativeDocumentMoniker": "view\\modal\\AddBook.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\modal\\AddBook.cs",
+              "RelativeToolTip": "view\\modal\\AddBook.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T02:58:27.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookPage.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\BookPage.cs",
+              "RelativeDocumentMoniker": "view\\BookPage.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\BookPage.cs [Design]",
+              "RelativeToolTip": "view\\BookPage.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T02:48:45.105Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddBook.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\modal\\AddBook.cs",
+              "RelativeDocumentMoniker": "view\\modal\\AddBook.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\view\\modal\\AddBook.cs [Design]",
+              "RelativeToolTip": "view\\modal\\AddBook.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T02:40:55.908Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Books.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\model\\Books.cs",
+              "RelativeDocumentMoniker": "model\\Books.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\model\\Books.cs",
+              "RelativeToolTip": "model\\Books.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T02:37:37.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentRegistration.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\controller\\student\\StudentRegistration.cs",
+              "RelativeDocumentMoniker": "controller\\student\\StudentRegistration.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\LibraryManagementSystem\\controller\\student\\StudentRegistration.cs",
+              "RelativeToolTip": "controller\\student\\StudentRegistration.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T02:35:30.948Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

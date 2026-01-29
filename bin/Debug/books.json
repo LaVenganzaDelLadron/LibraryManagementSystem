@@ -1,0 +1,47 @@
+[
+  {
+    "Id": "175adba1-d99b-4087-8ecf-ac4e107129cb",
+    "Title": "48 Law of Power",
+    "Author": "Robert Greene",
+    "PublishedDate": "2021-09-12T00:00:00",
+    "Description": "asd",
+    "Category": "asdfsdf",
+    "Copies": 12
+  },
+  {
+    "Id": "048c48c0-6196-4a4d-89a0-815b34d8cdb2",
+    "Title": "The Law of Seduction",
+    "Author": "Robert Greene",
+    "PublishedDate": "2021-01-21T00:00:00",
+    "Description": "asdasd",
+    "Category": "philosophy",
+    "Copies": 43
+  },
+  {
+    "Id": "9b93b5ac-eca6-445b-a828-7b2b6729f35b",
+    "Title": "sdfsAS",
+    "Author": "ASDASD",
+    "PublishedDate": "2021-03-25T00:00:00",
+    "Description": "fsdf",
+    "Category": "asdfsdf",
+    "Copies": 23
+  },
+  {
+    "Id": "1f05974e-9a54-4c5f-b7ab-be81394d22f3",
+    "Title": "asasd",
+    "Author": "sdfsdsf",
+    "PublishedDate": "2122-09-09T00:00:00",
+    "Description": "dfgsdf",
+    "Category": "philosophy",
+    "Copies": 78
+  },
+  {
+    "Id": "45d1b33c-a999-4832-96c8-d7bc5d319687",
+    "Title": "lol",
+    "Author": "lolli",
+    "PublishedDate": "2021-12-31T00:00:00",
+    "Description": "asdcasdsa",
+    "Category": "philosophy",
+    "Copies": 12
+  }
+]
