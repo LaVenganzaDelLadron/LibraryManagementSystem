@@ -13,7 +13,7 @@ namespace LibraryManagementSystem.view.modal
 {
     public partial class AddCategory : Form
     {
-        private Category _categoryController = new Category();
+        private CategoryController _categoryController = new CategoryController();
 
         public AddCategory()
         {

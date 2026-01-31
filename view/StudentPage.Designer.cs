@@ -44,11 +44,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label2.ForeColor = System.Drawing.Color.Gray;
             this.label2.Location = new System.Drawing.Point(16, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 16);
+            this.label2.Size = new System.Drawing.Size(231, 18);
             this.label2.TabIndex = 3;
-            this.label2.Text = "boook is always right";
+            this.label2.Text = "Manage student registrations";
             // 
             // label1
             // 
@@ -62,13 +64,17 @@
             // 
             // btnStudent
             // 
-            this.btnStudent.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnStudent.BackColor = System.Drawing.Color.FromArgb(46, 204, 113);
+            this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.btnStudent.ForeColor = System.Drawing.Color.White;
             this.btnStudent.Location = new System.Drawing.Point(856, 12);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(147, 51);
             this.btnStudent.TabIndex = 4;
             this.btnStudent.Text = "Add New Student";
             this.btnStudent.UseVisualStyleBackColor = false;
+            this.btnStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
             // dataGridViewStudents

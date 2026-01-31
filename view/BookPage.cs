@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystem.controller.book;
 using LibraryManagementSystem.view.modal;
+using LibraryManagementSystem.model;
 
 namespace LibraryManagementSystem
 {
@@ -16,21 +17,46 @@ namespace LibraryManagementSystem
     {
         AddCategory addCategory= new AddCategory();
         AddBook addBook = new AddBook();
-        BookService bookService = new BookService();
+        BookController bookService = new BookController();
 
         private int _selectedRowIndex = -1;
+        private List<Books> _currentBooks = new List<Books>();
 
         public BookPage()
         {
             InitializeComponent();
             InitializeDataGridView();
+            InitializeCategoryFilter();
+        }
+
+        private void InitializeCategoryFilter()
+        {
+            comboBoxCategory.Items.Clear();
+            var categories = bookService.GetAllCategories();
+            foreach (var category in categories)
+            {
+                comboBoxCategory.Items.Add(category);
+            }
+            comboBoxCategory.SelectedIndex = 0;
+            comboBoxCategory.SelectedIndexChanged += ComboBoxCategory_SelectedIndexChanged;
+        }
+
+        private void ComboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedCategory = comboBoxCategory.SelectedItem?.ToString() ?? "All Categories";
+            FilterAndDisplay(selectedCategory);
+        }
+
+        private void FilterAndDisplay(string category)
+        {
+            _currentBooks = bookService.GetBooksByCategory(category);
+            DisplayBooks(_currentBooks);
         }
 
         private void InitializeDataGridView()
         {
             // Clear existing columnsaaaa
             dataGridViewBooks.Columns.Clear();
-            aaaaaa
 
             // Add columns for book information
             dataGridViewBooks.Columns.Add("Title", "Title");
@@ -40,23 +66,37 @@ namespace LibraryManagementSystem
             dataGridViewBooks.Columns.Add("Copies", "Copies");
 
             // Add Actions (three dots) column
-            DataGridViewButtonColumn actionsColumn = new DataGridViewButtonColumn();
+            DataGridViewTextBoxColumn actionsColumn = new DataGridViewTextBoxColumn();
             actionsColumn.Name = "Actions";
             actionsColumn.HeaderText = "Actions";
-            actionsColumn.Text = "...";
-            actionsColumn.UseColumnTextForButtonValue = true;
-            actionsColumn.Width = 60;
+            actionsColumn.Width = 70;
+            actionsColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            actionsColumn.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
             dataGridViewBooks.Columns.Add(actionsColumn);
 
             // Style the DataGridView
             dataGridViewBooks.EnableHeadersVisualStyles = false;
-            dataGridViewBooks.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(52, 152, 219);
+            dataGridViewBooks.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(0, 128, 128);
             dataGridViewBooks.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
             dataGridViewBooks.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewBooks.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewBooks.ColumnHeadersHeight = 40;
-            dataGridViewBooks.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
-            dataGridViewBooks.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(41, 128, 185);
+            dataGridViewBooks.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(240, 248, 255);
+            dataGridViewBooks.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(0, 150, 136);
             dataGridViewBooks.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewBooks.DefaultCellStyle.Padding = new Padding(5, 2, 5, 2);
+            dataGridViewBooks.RowTemplate.Height = 35;
+            dataGridViewBooks.BorderStyle = BorderStyle.None;
+            
+            // Center align Published Date and Copies columns
+            dataGridViewBooks.Columns["PublishedDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewBooks.Columns["Copies"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewBooks.Columns["Copies"].DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+
+            // Add event handlers
+            dataGridViewBooks.CellMouseEnter += DataGridViewBooks_CellMouseEnter;
+            dataGridViewBooks.CellMouseLeave += DataGridViewBooks_CellMouseLeave;
+            dataGridViewBooks.CellFormatting += DataGridViewBooks_CellFormatting;
 
             // Load books from service
             LoadBooksData();
@@ -64,8 +104,13 @@ namespace LibraryManagementSystem
 
         private void LoadBooksData()
         {
+            _currentBooks = bookService.GetAllBooks();
+            DisplayBooks(_currentBooks);
+        }
+
+        private void DisplayBooks(List<Books> books)
+        {
             dataGridViewBooks.Rows.Clear();
-            var books = bookService.GetAllBooks();
 
             foreach (var book in books)
             {
@@ -73,8 +118,9 @@ namespace LibraryManagementSystem
                     book.Title,
                     book.Author,
                     book.Category,
-                    book.PublishedDate.ToString("yyyy-MM-dd"),
-                    book.Copies
+                    book.PublishedDate.Year.ToString(),
+                    book.Copies,
+                    "⋮"  // Three vertical dots
                 );
             }
         }
@@ -88,9 +134,8 @@ namespace LibraryManagementSystem
 
             if (e.ColumnIndex == dataGridViewBooks.Columns["Actions"].Index)
             {
-                var cellRect = dataGridViewBooks.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-                var menuPoint = dataGridViewBooks.PointToScreen(new Point(cellRect.Left, cellRect.Bottom));
-                contextMenuStripActions.Show(menuPoint);
+                var cellRect = dataGridViewBooks.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
+                contextMenuStripActions.Show(dataGridViewBooks, cellRect.Left, cellRect.Bottom);
             }
             else
             {
@@ -111,7 +156,7 @@ namespace LibraryManagementSystem
             var book = books[rowIndex];
             string details = $"Title: {book.Title}\n\n" +
                            $"Author: {book.Author}\n\n" +
-                           $"Published Date: {book.PublishedDate:yyyy-MM-dd}\n\n" +
+                           $"Published Year: {book.PublishedDate.Year}\n\n" +
                            $"Category: {book.Category}\n\n" +
                            $"Description: {book.Description}\n\n" +
                            $"Copies Available: {book.Copies}";
@@ -170,6 +215,41 @@ namespace LibraryManagementSystem
             if (addBook.ShowDialog() == DialogResult.OK)
             {
                 LoadBooksData();
+            }
+        }
+
+        private void DataGridViewBooks_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewBooks.Columns["Actions"].Index)
+            {
+                dataGridViewBooks.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void DataGridViewBooks_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewBooks.Cursor = Cursors.Default;
+        }
+
+        private void DataGridViewBooks_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewBooks.Columns["Copies"].Index && e.RowIndex >= 0)
+            {
+                if (e.Value != null && int.TryParse(e.Value.ToString(), out int copies))
+                {
+                    if (copies == 0)
+                    {
+                        e.CellStyle.ForeColor = System.Drawing.Color.FromArgb(220, 20, 60); // Red
+                    }
+                    else if (copies < 5)
+                    {
+                        e.CellStyle.ForeColor = System.Drawing.Color.FromArgb(255, 140, 0); // Orange
+                    }
+                    else
+                    {
+                        e.CellStyle.ForeColor = System.Drawing.Color.FromArgb(0, 128, 0); // Green
+                    }
+                }
             }
         }
     }

@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblGetTotalStudents = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblAvailableBooks = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblBorrowed = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblPending = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblOverDue = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.progressBarBorrowRate = new System.Windows.Forms.ProgressBar();
             this.label14 = new System.Windows.Forms.Label();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.progressBarReturnRate = new System.Windows.Forms.ProgressBar();
             this.label13 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBarInventory = new System.Windows.Forms.ProgressBar();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridViewTransactions = new System.Windows.Forms.DataGridView();
@@ -81,25 +81,26 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(52, 152, 219);
+            this.panel1.Controls.Add(this.lblGetTotalStudents);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(21, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(175, 142);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // label2
+            // lblGetTotalStudents
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(70, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 27);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "100";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGetTotalStudents.AutoSize = true;
+            this.lblGetTotalStudents.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGetTotalStudents.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblGetTotalStudents.Location = new System.Drawing.Point(70, 85);
+            this.lblGetTotalStudents.Name = "lblGetTotalStudents";
+            this.lblGetTotalStudents.Size = new System.Drawing.Size(48, 27);
+            this.lblGetTotalStudents.TabIndex = 2;
+            this.lblGetTotalStudents.Text = "100";
+            this.lblGetTotalStudents.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -112,17 +113,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Students";
             // 
-            // label3
+            // lblAvailableBooks
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(70, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 27);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "253";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAvailableBooks.AutoSize = true;
+            this.lblAvailableBooks.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvailableBooks.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblAvailableBooks.Location = new System.Drawing.Point(70, 85);
+            this.lblAvailableBooks.Name = "lblAvailableBooks";
+            this.lblAvailableBooks.Size = new System.Drawing.Size(48, 27);
+            this.lblAvailableBooks.TabIndex = 2;
+            this.lblAvailableBooks.Text = "253";
+            this.lblAvailableBooks.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -137,25 +138,26 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(46, 204, 113);
+            this.panel2.Controls.Add(this.lblAvailableBooks);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(218, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(175, 142);
             this.panel2.TabIndex = 3;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // label5
+            // lblBorrowed
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(70, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 27);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "43";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBorrowed.AutoSize = true;
+            this.lblBorrowed.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBorrowed.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblBorrowed.Location = new System.Drawing.Point(70, 85);
+            this.lblBorrowed.Name = "lblBorrowed";
+            this.lblBorrowed.Size = new System.Drawing.Size(36, 27);
+            this.lblBorrowed.TabIndex = 2;
+            this.lblBorrowed.Text = "43";
+            this.lblBorrowed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -170,24 +172,25 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.label5);
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(155, 89, 182);
+            this.panel3.Controls.Add(this.lblBorrowed);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(414, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(175, 142);
             this.panel3.TabIndex = 3;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // label7
+            // lblPending
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(70, 85);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(24, 27);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "5";
+            this.lblPending.AutoSize = true;
+            this.lblPending.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPending.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPending.Location = new System.Drawing.Point(70, 85);
+            this.lblPending.Name = "lblPending";
+            this.lblPending.Size = new System.Drawing.Size(24, 27);
+            this.lblPending.TabIndex = 2;
+            this.lblPending.Text = "5";
             // 
             // label8
             // 
@@ -202,24 +205,25 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel4.Controls.Add(this.label7);
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(241, 196, 15);
+            this.panel4.Controls.Add(this.lblPending);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Location = new System.Drawing.Point(615, 12);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(175, 142);
             this.panel4.TabIndex = 3;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // label9
+            // lblOverDue
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(70, 85);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 27);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "12";
+            this.lblOverDue.AutoSize = true;
+            this.lblOverDue.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverDue.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblOverDue.Location = new System.Drawing.Point(70, 85);
+            this.lblOverDue.Name = "lblOverDue";
+            this.lblOverDue.Size = new System.Drawing.Size(36, 27);
+            this.lblOverDue.TabIndex = 2;
+            this.lblOverDue.Text = "12";
             // 
             // label10
             // 
@@ -234,35 +238,37 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel5.Controls.Add(this.label9);
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(231, 76, 60);
+            this.panel5.Controls.Add(this.lblOverDue);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(816, 12);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(175, 142);
             this.panel5.TabIndex = 3;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel6.Controls.Add(this.progressBar3);
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(52, 73, 94);
+            this.panel6.Controls.Add(this.progressBarBorrowRate);
             this.panel6.Controls.Add(this.label14);
-            this.panel6.Controls.Add(this.progressBar2);
+            this.panel6.Controls.Add(this.progressBarReturnRate);
             this.panel6.Controls.Add(this.label13);
-            this.panel6.Controls.Add(this.progressBar1);
+            this.panel6.Controls.Add(this.progressBarInventory);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label11);
             this.panel6.Location = new System.Drawing.Point(690, 174);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(301, 383);
             this.panel6.TabIndex = 4;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
-            // progressBar3
+            // progressBarBorrowRate
             // 
-            this.progressBar3.Location = new System.Drawing.Point(19, 220);
-            this.progressBar3.Name = "progressBar3";
-            this.progressBar3.Size = new System.Drawing.Size(265, 17);
-            this.progressBar3.TabIndex = 9;
+            this.progressBarBorrowRate.Location = new System.Drawing.Point(19, 220);
+            this.progressBarBorrowRate.Name = "progressBarBorrowRate";
+            this.progressBarBorrowRate.Size = new System.Drawing.Size(265, 17);
+            this.progressBarBorrowRate.TabIndex = 9;
             // 
             // label14
             // 
@@ -275,12 +281,12 @@
             this.label14.TabIndex = 8;
             this.label14.Text = "borrow rate";
             // 
-            // progressBar2
+            // progressBarReturnRate
             // 
-            this.progressBar2.Location = new System.Drawing.Point(19, 157);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(265, 17);
-            this.progressBar2.TabIndex = 7;
+            this.progressBarReturnRate.Location = new System.Drawing.Point(19, 157);
+            this.progressBarReturnRate.Name = "progressBarReturnRate";
+            this.progressBarReturnRate.Size = new System.Drawing.Size(265, 17);
+            this.progressBarReturnRate.TabIndex = 7;
             // 
             // label13
             // 
@@ -293,12 +299,12 @@
             this.label13.TabIndex = 6;
             this.label13.Text = "return rate";
             // 
-            // progressBar1
+            // progressBarInventory
             // 
-            this.progressBar1.Location = new System.Drawing.Point(19, 93);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(265, 17);
-            this.progressBar1.TabIndex = 5;
+            this.progressBarInventory.Location = new System.Drawing.Point(19, 93);
+            this.progressBarInventory.Name = "progressBarInventory";
+            this.progressBarInventory.Size = new System.Drawing.Size(265, 17);
+            this.progressBarInventory.TabIndex = 5;
             // 
             // label12
             // 
@@ -432,9 +438,9 @@
             this.label20.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label20.Location = new System.Drawing.Point(54, 49);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 27);
+            this.label20.Size = new System.Drawing.Size(64, 27);
             this.label20.TabIndex = 1;
-            this.label20.Text = "Bills";
+            this.label20.Text = "Fines";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel10
@@ -540,28 +546,28 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblGetTotalStudents;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblAvailableBooks;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblBorrowed;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblOverDue;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ProgressBar progressBar3;
+        private System.Windows.Forms.ProgressBar progressBarBorrowRate;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.ProgressBar progressBarReturnRate;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressBarInventory;
         private System.Windows.Forms.DataGridView dataGridViewTransactions;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label15;

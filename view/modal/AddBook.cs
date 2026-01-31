@@ -13,8 +13,8 @@ namespace LibraryManagementSystem.view.modal
 {
     public partial class AddBook : Form
     {
-        BookService bookService = new BookService();
-        Category categoryController = new Category();
+        BookController bookService = new BookController();
+        CategoryController categoryController = new CategoryController();
         
         public AddBook()
         {
@@ -47,13 +47,13 @@ namespace LibraryManagementSystem.view.modal
         {
             var title = textBoxTitle.Text;
             var author = textBoxAuthor.Text;
-            var publishedDate = textBoxPublication.Text;
+            var publishedYear = textBoxPublication.Text;
             var description = textBoxDescription.Text;
             var copies = textBoxCopies.Text;
             var category = comboBoxCategory.SelectedItem?.ToString() ?? "";
 
             if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(author) ||
-                string.IsNullOrWhiteSpace(publishedDate) || string.IsNullOrWhiteSpace(description) ||
+                string.IsNullOrWhiteSpace(publishedYear) || string.IsNullOrWhiteSpace(description) ||
                 string.IsNullOrWhiteSpace(copies) || string.IsNullOrWhiteSpace(category))
             {
                 MessageBox.Show("Please fill in all fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -61,18 +61,40 @@ namespace LibraryManagementSystem.view.modal
             }
             else
             {
-                DateTime pubDate;
+                int year;
                 int numCopies;
-                if (!DateTime.TryParse(publishedDate, out pubDate))
+                
+                // Validate year is a valid integer
+                if (!int.TryParse(publishedYear, out year))
                 {
-                    MessageBox.Show("Please enter a valid publication date.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter a valid year (e.g., 2024).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                
+                // Validate year is not in the future
+                int currentYear = DateTime.Now.Year;
+                if (year > currentYear)
+                {
+                    MessageBox.Show($"Publication year cannot be in the future. Current year is {currentYear}.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
+                // Validate year is reasonable (not too far in the past)
+                if (year < 0000 || year > currentYear)
+                {
+                    MessageBox.Show($"Please enter a valid year between 1000 and {currentYear}.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
                 if (!int.TryParse(copies, out numCopies) || numCopies < 0)
                 {
                     MessageBox.Show("Please enter a valid number of copies.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                
+                // Convert year to DateTime (January 1st of that year)
+                DateTime pubDate = new DateTime(year, 1, 1);
+                
                 bool isAdded = bookService.AddBook(title, author, pubDate, description, category, numCopies);
                 if (isAdded)
                 {

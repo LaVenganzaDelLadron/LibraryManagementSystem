@@ -49,20 +49,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controller\book\BookService.cs" />
-    <Compile Include="controller\book\Category.cs" />
+    <Compile Include="controller\book\BookController.cs" />
+    <Compile Include="controller\book\BorrowController.cs" />
+    <Compile Include="controller\book\CategoryController.cs" />
+    <Compile Include="controller\dashboard\DashboardController.cs" />
+    <Compile Include="controller\home\HomeContoller.cs" />
+    <Compile Include="controller\monitoring\MonitoringController.cs" />
+    <Compile Include="controller\student\StudentNotificationController.cs" />
     <Compile Include="controller\student\StudentRegistration.cs" />
+    <Compile Include="core\clientcontroller\book\BookServices.cs" />
+    <Compile Include="core\clientcontroller\book\BorrowService.cs" />
+    <Compile Include="core\clientcontroller\book\CategoryService.cs" />
+    <Compile Include="core\clientcontroller\book\RejectService.cs" />
+    <Compile Include="core\Core.cs" />
+    <Compile Include="core\DataPathHelper.cs" />
+    <Compile Include="core\clientcontroller\auth\AuthService.cs" />
+    <Compile Include="core\student\StudentNotificationService.cs" />
+    <Compile Include="core\student\StudentService.cs" />
+    <Compile Include="enumerator\BorrowStatus.cs" />
     <Compile Include="enumerator\UserStatus.cs" />
+    <Compile Include="model\AuthRequest.cs" />
+    <Compile Include="model\AuthResponse.cs" />
+    <Compile Include="model\BookResponse.cs" />
     <Compile Include="model\Books.cs" />
+    <Compile Include="model\Borrow.cs" />
+    <Compile Include="model\BorrowResponse.cs" />
     <Compile Include="model\Category.cs" />
+    <Compile Include="model\CategoryResponse.cs" />
+    <Compile Include="model\Notification.cs" />
+    <Compile Include="model\Reject.cs" />
+    <Compile Include="model\RejectResponse.cs" />
+    <Compile Include="model\StudentResponse.cs" />
     <Compile Include="view\BookPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\BookPage.Designer.cs">
       <DependentUpon>BookPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="controller\adminAuth\AuthService.cs" />
-    <Compile Include="controller\passwordHelper\PasswordHelper.cs" />
+    <Compile Include="controller\admin\AuthService.cs" />
+    <Compile Include="controller\password\PasswordHelper.cs" />
     <Compile Include="view\BorrowingPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +138,12 @@
     </Compile>
     <Compile Include="view\modal\AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\MonitoringPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\MonitoringPage.Designer.cs">
+      <DependentUpon>MonitoringPage.cs</DependentUpon>
     </Compile>
     <Compile Include="view\ReportPage.cs">
       <SubType>Form</SubType>
@@ -169,6 +200,9 @@
     <EmbeddedResource Include="view\modal\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\MonitoringPage.resx">
+      <DependentUpon>MonitoringPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\ReportPage.resx">
       <DependentUpon>ReportPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,10 +234,14 @@
     <Content Include="image\lend.png" />
     <Content Include="image\logo.png" />
     <Content Include="image\logout.png" />
+    <Content Include="image\monitoring.png" />
     <Content Include="image\notification.png" />
     <Content Include="image\report.png" />
     <Content Include="image\search.png" />
     <Content Include="image\student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="core\notifications\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

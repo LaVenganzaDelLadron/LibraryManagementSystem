@@ -34,22 +34,36 @@ namespace LibraryManagementSystem
             dataGridViewStudents.Columns.Add("JoinDate", "Join Date");
             dataGridViewStudents.Columns.Add("Status", "Status");
 
-            DataGridViewButtonColumn actionsColumn = new DataGridViewButtonColumn();
+            DataGridViewTextBoxColumn actionsColumn = new DataGridViewTextBoxColumn();
             actionsColumn.Name = "Actions";
             actionsColumn.HeaderText = "Actions";
-            actionsColumn.Text = "...";
-            actionsColumn.UseColumnTextForButtonValue = true;
-            actionsColumn.Width = 60;
+            actionsColumn.Width = 70;
+            actionsColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            actionsColumn.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
             dataGridViewStudents.Columns.Add(actionsColumn);
 
             dataGridViewStudents.EnableHeadersVisualStyles = false;
-            dataGridViewStudents.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 152, 219);
+            dataGridViewStudents.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 128, 128);
             dataGridViewStudents.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dataGridViewStudents.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            dataGridViewStudents.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewStudents.ColumnHeadersHeight = 40;
-            dataGridViewStudents.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-            dataGridViewStudents.DefaultCellStyle.SelectionBackColor = Color.FromArgb(41, 128, 185);
+            dataGridViewStudents.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
+            dataGridViewStudents.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 150, 136);
             dataGridViewStudents.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridViewStudents.DefaultCellStyle.Padding = new Padding(5, 2, 5, 2);
+            dataGridViewStudents.RowTemplate.Height = 35;
+            dataGridViewStudents.BorderStyle = BorderStyle.None;
+            
+            // Center align JoinDate and Status columns
+            dataGridViewStudents.Columns["JoinDate"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewStudents.Columns["Status"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewStudents.Columns["Status"].DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+
+            // Add event handlers
+            dataGridViewStudents.CellMouseEnter += DataGridViewStudents_CellMouseEnter;
+            dataGridViewStudents.CellMouseLeave += DataGridViewStudents_CellMouseLeave;
+            dataGridViewStudents.CellFormatting += DataGridViewStudents_CellFormatting;
 
             LoadStudentData();
         }
@@ -66,7 +80,8 @@ namespace LibraryManagementSystem
                     student.Email,
                     student.ContactNo,
                     student.JoinDate.ToString("yyyy-MM-dd"),
-                    student.Status.ToString()
+                    student.Status.ToString(),
+                    "⋮"  // Three vertical dots
                 );
             }
         }
@@ -89,9 +104,8 @@ namespace LibraryManagementSystem
             if (e.ColumnIndex == dataGridViewStudents.Columns["Actions"].Index)
             {
                 _selectedRowIndex = e.RowIndex;
-                var cellRect = dataGridViewStudents.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-                var menuPoint = dataGridViewStudents.PointToScreen(new Point(cellRect.Left, cellRect.Bottom));
-                contextMenuStripActions.Show(menuPoint);
+                var cellRect = dataGridViewStudents.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
+                contextMenuStripActions.Show(dataGridViewStudents, cellRect.Left, cellRect.Bottom);
             }
         }
 
@@ -146,6 +160,40 @@ namespace LibraryManagementSystem
             if (addStudent.ShowDialog() == DialogResult.OK)
             {
                 LoadStudentData();
+            }
+        }
+
+        private void DataGridViewStudents_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewStudents.Columns["Actions"].Index)
+            {
+                dataGridViewStudents.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void DataGridViewStudents_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewStudents.Cursor = Cursors.Default;
+        }
+
+        private void DataGridViewStudents_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewStudents.Columns["Status"].Index && e.RowIndex >= 0)
+            {
+                string status = e.Value?.ToString() ?? "";
+                
+                if (status.IndexOf("Active", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    e.CellStyle.ForeColor = System.Drawing.Color.FromArgb(0, 128, 0); // Green
+                }
+                else if (status.IndexOf("Banned", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    e.CellStyle.ForeColor = System.Drawing.Color.FromArgb(220, 20, 60); // Red
+                }
+                else if (status.IndexOf("Inactive", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    e.CellStyle.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128); // Gray
+                }
             }
         }
     }

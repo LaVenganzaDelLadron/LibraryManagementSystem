@@ -9,7 +9,7 @@ namespace LibraryManagementSystem.controller.studentRegistration
 {
     internal class StudentRegistration
     {
-        private static readonly string filePath = "students.json";
+        private static readonly string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
 
         private List<Users> LoadStudents()
         {
