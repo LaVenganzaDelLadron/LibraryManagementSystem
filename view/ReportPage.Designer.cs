@@ -28,28 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblCirculationPercent = new System.Windows.Forms.Label();
             this.lblCirculationRate = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblActiveBorrowerPercent = new System.Windows.Forms.Label();
             this.lblBorrower = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblNewAcquisitionPercent = new System.Windows.Forms.Label();
             this.lblNewAcquisition = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -120,8 +114,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.lblCirculationPercent);
             this.panel1.Controls.Add(this.lblCirculationRate);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(19, 92);
@@ -129,34 +121,12 @@
             this.panel1.Size = new System.Drawing.Size(218, 144);
             this.panel1.TabIndex = 7;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(93, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(113, 20);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "vs. last month";
-            // 
-            // lblCirculationPercent
-            // 
-            this.lblCirculationPercent.AutoSize = true;
-            this.lblCirculationPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCirculationPercent.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblCirculationPercent.Location = new System.Drawing.Point(13, 93);
-            this.lblCirculationPercent.Name = "lblCirculationPercent";
-            this.lblCirculationPercent.Size = new System.Drawing.Size(74, 25);
-            this.lblCirculationPercent.TabIndex = 10;
-            this.lblCirculationPercent.Text = "+ 4.2%";
-            // 
             // lblCirculationRate
             // 
             this.lblCirculationRate.AutoSize = true;
             this.lblCirculationRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCirculationRate.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblCirculationRate.Location = new System.Drawing.Point(129, 50);
+            this.lblCirculationRate.Location = new System.Drawing.Point(73, 59);
             this.lblCirculationRate.Name = "lblCirculationRate";
             this.lblCirculationRate.Size = new System.Drawing.Size(74, 32);
             this.lblCirculationRate.TabIndex = 9;
@@ -176,8 +146,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.lblActiveBorrowerPercent);
             this.panel2.Controls.Add(this.lblBorrower);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Location = new System.Drawing.Point(243, 92);
@@ -185,34 +153,12 @@
             this.panel2.Size = new System.Drawing.Size(218, 144);
             this.panel2.TabIndex = 12;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(93, 114);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 20);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "vs. last month";
-            // 
-            // lblActiveBorrowerPercent
-            // 
-            this.lblActiveBorrowerPercent.AutoSize = true;
-            this.lblActiveBorrowerPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActiveBorrowerPercent.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblActiveBorrowerPercent.Location = new System.Drawing.Point(13, 93);
-            this.lblActiveBorrowerPercent.Name = "lblActiveBorrowerPercent";
-            this.lblActiveBorrowerPercent.Size = new System.Drawing.Size(85, 25);
-            this.lblActiveBorrowerPercent.TabIndex = 10;
-            this.lblActiveBorrowerPercent.Text = "+ 12.2%";
-            // 
             // lblBorrower
             // 
             this.lblBorrower.AutoSize = true;
             this.lblBorrower.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBorrower.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblBorrower.Location = new System.Drawing.Point(129, 50);
+            this.lblBorrower.Location = new System.Drawing.Point(79, 59);
             this.lblBorrower.Name = "lblBorrower";
             this.lblBorrower.Size = new System.Drawing.Size(65, 32);
             this.lblBorrower.TabIndex = 9;
@@ -232,8 +178,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.lblNewAcquisitionPercent);
             this.panel3.Controls.Add(this.lblNewAcquisition);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Location = new System.Drawing.Point(467, 92);
@@ -241,34 +185,12 @@
             this.panel3.Size = new System.Drawing.Size(218, 144);
             this.panel3.TabIndex = 12;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(93, 114);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 20);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "vs. last month";
-            // 
-            // lblNewAcquisitionPercent
-            // 
-            this.lblNewAcquisitionPercent.AutoSize = true;
-            this.lblNewAcquisitionPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewAcquisitionPercent.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblNewAcquisitionPercent.Location = new System.Drawing.Point(13, 93);
-            this.lblNewAcquisitionPercent.Name = "lblNewAcquisitionPercent";
-            this.lblNewAcquisitionPercent.Size = new System.Drawing.Size(53, 25);
-            this.lblNewAcquisitionPercent.TabIndex = 10;
-            this.lblNewAcquisitionPercent.Text = "- 4%";
-            // 
             // lblNewAcquisition
             // 
             this.lblNewAcquisition.AutoSize = true;
             this.lblNewAcquisition.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNewAcquisition.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblNewAcquisition.Location = new System.Drawing.Point(129, 50);
+            this.lblNewAcquisition.Location = new System.Drawing.Point(89, 50);
             this.lblNewAcquisition.Name = "lblNewAcquisition";
             this.lblNewAcquisition.Size = new System.Drawing.Size(48, 32);
             this.lblNewAcquisition.TabIndex = 9;
@@ -317,10 +239,10 @@
             this.label23.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label23.Location = new System.Drawing.Point(9, 50);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(243, 80);
+            this.label23.Size = new System.Drawing.Size(236, 80);
             this.label23.TabIndex = 21;
-            this.label23.Text = "Penalties are calculated at ₱10 per hour\r\n of delay. Students with unpaid \r\nfines" +
-    " exceeding ₱500 are \r\nrestricted from new\r\nborrowings.";
+            this.label23.Text = "Penalties are calculated at ₱3 per hour\r\n of delay. Students with unpaid \r\nfines " +
+    "exceeding ₱500 are \r\nrestricted from new\r\nborrowings.";
             // 
             // label22
             // 
@@ -439,19 +361,19 @@
             // 
             this.dgvOverduePenalty.AllowUserToAddRows = false;
             this.dgvOverduePenalty.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
-            this.dgvOverduePenalty.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.dgvOverduePenalty.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvOverduePenalty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOverduePenalty.BackgroundColor = System.Drawing.Color.White;
             this.dgvOverduePenalty.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOverduePenalty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOverduePenalty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvOverduePenalty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOverduePenalty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colStudentBook,
@@ -459,19 +381,18 @@
             this.colPenaltyBreakdown,
             this.colPayment,
             this.colActions});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOverduePenalty.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOverduePenalty.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvOverduePenalty.EnableHeadersVisualStyles = false;
             this.dgvOverduePenalty.Location = new System.Drawing.Point(19, 286);
             this.dgvOverduePenalty.Name = "dgvOverduePenalty";
-            this.dgvOverduePenalty.ReadOnly = true;
             this.dgvOverduePenalty.RowHeadersWidth = 51;
             this.dgvOverduePenalty.RowTemplate.Height = 35;
             this.dgvOverduePenalty.Size = new System.Drawing.Size(666, 410);
@@ -487,8 +408,8 @@
             // 
             // colDueDateDelay
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colDueDateDelay.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colDueDateDelay.DefaultCellStyle = dataGridViewCellStyle9;
             this.colDueDateDelay.HeaderText = "Due Date & Delay";
             this.colDueDateDelay.MinimumWidth = 6;
             this.colDueDateDelay.Name = "colDueDateDelay";
@@ -496,9 +417,9 @@
             // 
             // colPenaltyBreakdown
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.colPenaltyBreakdown.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.colPenaltyBreakdown.DefaultCellStyle = dataGridViewCellStyle10;
             this.colPenaltyBreakdown.HeaderText = "Penalty Breakdown";
             this.colPenaltyBreakdown.MinimumWidth = 6;
             this.colPenaltyBreakdown.Name = "colPenaltyBreakdown";
@@ -506,9 +427,9 @@
             // 
             // colPayment
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.colPayment.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.colPayment.DefaultCellStyle = dataGridViewCellStyle11;
             this.colPayment.HeaderText = "Payment";
             this.colPayment.MinimumWidth = 6;
             this.colPayment.Name = "colPayment";
@@ -519,9 +440,6 @@
             this.colActions.HeaderText = "Actions";
             this.colActions.MinimumWidth = 6;
             this.colActions.Name = "colActions";
-            this.colActions.ReadOnly = true;
-            this.colActions.Text = "Pay";
-            this.colActions.UseColumnTextForButtonValue = true;
             // 
             // lblOverdueTitle
             // 
@@ -574,18 +492,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblCirculationPercent;
         private System.Windows.Forms.Label lblCirculationRate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblActiveBorrowerPercent;
         private System.Windows.Forms.Label lblBorrower;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lblNewAcquisitionPercent;
         private System.Windows.Forms.Label lblNewAcquisition;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel4;

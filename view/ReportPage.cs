@@ -8,12 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystem.controller;
+using LibraryManagementSystem.controller.report;
+using LibraryManagementSystem.controller.payment;
+using LibraryManagementSystem.view.modal;
 
 namespace LibraryManagementSystem.view
 {
     public partial class ReportPage : Form
     {
+        private ReportController reportController;
+        private PaymentController paymentController;
         private List<dynamic> overdueBooksList;
+        
         private class ReturnRowInfo
         {
             public Guid BorrowId { get; set; }
@@ -24,6 +30,8 @@ namespace LibraryManagementSystem.view
         public ReportPage()
         {
             InitializeComponent();
+            reportController = new ReportController();
+            paymentController = new PaymentController();
             LoadReportData();
             LoadOverduePenaltyData();
             InitializeDataGridViewEvents();
@@ -34,6 +42,7 @@ namespace LibraryManagementSystem.view
             dgvOverduePenalty.CellMouseEnter += DgvOverduePenalty_CellMouseEnter;
             dgvOverduePenalty.CellMouseLeave += DgvOverduePenalty_CellMouseLeave;
             dgvOverduePenalty.CellFormatting += DgvOverduePenalty_CellFormatting;
+            dgvOverduePenalty.CellClick += DgvOverduePenalty_CellClick;
         }
 
         private void DgvOverduePenalty_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
@@ -47,6 +56,36 @@ namespace LibraryManagementSystem.view
         private void DgvOverduePenalty_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             dgvOverduePenalty.Cursor = Cursors.Default;
+        }
+
+        private void DgvOverduePenalty_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            if (e.ColumnIndex == dgvOverduePenalty.Columns["colActions"].Index)
+            {
+                return;
+            }
+
+            var rowInfo = dgvOverduePenalty.Rows[e.RowIndex].Tag as ReturnRowInfo;
+            if (rowInfo == null)
+            {
+                return;
+            }
+
+            string dueDateDelay = dgvOverduePenalty.Rows[e.RowIndex].Cells["colDueDateDelay"].Value?.ToString() ?? string.Empty;
+            string penaltyBreakdown = dgvOverduePenalty.Rows[e.RowIndex].Cells["colPenaltyBreakdown"].Value?.ToString() ?? string.Empty;
+            string payment = dgvOverduePenalty.Rows[e.RowIndex].Cells["colPayment"].Value?.ToString() ?? string.Empty;
+
+            using (var details = new OverduePenaltyDetails(
+                rowInfo.StudentName,
+                rowInfo.BookTitle,
+                dueDateDelay,
+                penaltyBreakdown,
+                payment))
+            {
+                details.ShowDialog(this);
+            }
         }
 
         private void DgvOverduePenalty_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -83,30 +122,142 @@ namespace LibraryManagementSystem.view
         {
             try
             {
-                // Load Circulation Rate
-                double circulationRate = HomeContoller.GetCirculationRate();
-                lblCirculationPercent.Text = circulationRate.ToString("0.0") + "%";
+                var metrics = reportController.GetReportMetrics();
+                
+                double circulationRate = GetCirculationRate();
+                int activeBorrowers = GetActiveBorrowers();
+                int newAcquisitions = GetNewAcquisitions();
+                
+                lblCirculationRate.Text = circulationRate.ToString("0.0") + "%";
+                lblBorrower.Text = activeBorrowers.ToString();
+                lblNewAcquisition.Text = newAcquisitions.ToString();
 
-                // Load Active Borrowers
-                int activeBorrowers = HomeContoller.GetActiveBorrowers();
-                lblActiveBorrowerPercent.Text = activeBorrowers.ToString();
+                // Sync penalties from current overdue data into payments.json
+                SyncPaymentPenaltiesFromOverdue();
 
-                // Load Total Books (New Acquisition count)
-                int totalBooks = HomeContoller.GetTotalBooks();
-                lblNewAcquisitionPercent.Text = totalBooks.ToString();
+                // Calculate totals directly from payments data
+                var payments = paymentController.GetAllPayments();
+                decimal totalPenalty = payments.Sum(p => p.TotalPenalty);
+                decimal totalPaid = payments.Sum(p => p.AmountPaid);
+                decimal totalUnpaidPenalties = payments.Sum(p => p.UnpaidBalance);
 
-                // Load Total Unpaid Penalties
-                decimal totalUnpaidPenalties = HomeContoller.GetTotalUnpaidPenalties();
                 lblTotalUnpaid.Text = "₱ " + totalUnpaidPenalties.ToString("N0");
 
-                // Load Collection Progress
-                int collectionProgress = HomeContoller.GetPenaltyCollectionProgress();
-                progressBarPaid.Value = Math.Min(collectionProgress, 100);
-                progressBarUnpaid.Value = Math.Min(100 - collectionProgress, 100);
+                int paidProgress = 0;
+                int unpaidProgress = 0;
+
+                if (totalPenalty > 0)
+                {
+                    decimal percentage = (totalPaid / totalPenalty) * 100;
+                    paidProgress = Math.Max(0, Math.Min(100, (int)Math.Round(percentage)));
+                    unpaidProgress = 100 - paidProgress;
+                }
+
+                // Apply correct values to progress bars
+                // Zero-penalty case keeps both bars empty
+                progressBarPaid.Value = paidProgress;
+                progressBarUnpaid.Value = unpaidProgress;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading report data: {ex.Message}");
+            }
+        }
+
+        private void SyncPaymentPenaltiesFromOverdue()
+        {
+            try
+            {
+                var overdueBooks = reportController.GetOverdueBooksList();
+
+                var penaltiesByStudent = new Dictionary<string, decimal>(StringComparer.OrdinalIgnoreCase);
+
+                foreach (dynamic overdue in overdueBooks)
+                {
+                    if (overdue == null)
+                        continue;
+
+                    decimal penaltyAmount = 0;
+                    try
+                    {
+                        penaltyAmount = (decimal)overdue.PenaltyAmount;
+                    }
+                    catch
+                    {
+                        penaltyAmount = 0;
+                    }
+
+                    if (penaltyAmount <= 0)
+                        continue;
+
+                    string studentName = overdue.StudentName as string ?? string.Empty;
+                    if (string.IsNullOrWhiteSpace(studentName))
+                        continue;
+
+                    if (!penaltiesByStudent.ContainsKey(studentName))
+                        penaltiesByStudent[studentName] = 0;
+
+                    penaltiesByStudent[studentName] += penaltyAmount;
+                }
+
+                // Update penalties for students with current overdue fines
+                foreach (var entry in penaltiesByStudent)
+                {
+                    paymentController.UpdateTotalPenalty(entry.Key, entry.Value);
+                }
+
+                // Clear penalties for students who no longer have overdue fines
+                var allPayments = paymentController.GetAllPayments();
+                foreach (var payment in allPayments)
+                {
+                    if (!penaltiesByStudent.ContainsKey(payment.StudentName) && payment.TotalPenalty > 0)
+                    {
+                        paymentController.UpdateTotalPenalty(payment.StudentName, 0);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error syncing payment penalties: {ex.Message}");
+            }
+        }
+
+        private double GetCirculationRate()
+        {
+            try
+            {
+                return reportController.GetCirculationRateMetric();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error calculating circulation rate: {ex.Message}");
+                return 0;
+            }
+        }
+
+        private int GetActiveBorrowers()
+        {
+            try
+            {
+                return reportController.GetActiveBorrowersMetric();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error calculating active borrowers: {ex.Message}");
+                return 0;
+            }
+        }
+
+        private int GetNewAcquisitions()
+        {
+            try
+            {
+                return reportController.GetReportMetrics().TotalBooks;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error calculating new acquisitions: {ex.Message}");
+                return 0;
             }
         }
 
@@ -115,7 +266,7 @@ namespace LibraryManagementSystem.view
             try
             {
                 dgvOverduePenalty.Rows.Clear();
-                overdueBooksList = HomeContoller.GetOverdueBooks();
+                overdueBooksList = reportController.GetOverdueBooksList();
 
                 if (overdueBooksList.Count == 0)
                 {
@@ -143,6 +294,7 @@ namespace LibraryManagementSystem.view
                     if (string.IsNullOrWhiteSpace(overdue.ActionText))
                     {
                         dgvOverduePenalty.Rows[rowIndex].Cells["colActions"].ReadOnly = true;
+                        dgvOverduePenalty.Rows[rowIndex].Cells["colActions"].Value = string.Empty;
                     }
                 }
             }
@@ -156,7 +308,6 @@ namespace LibraryManagementSystem.view
         {
             if (e.RowIndex < 0) return;
 
-            // Check if Receive button was clicked
             if (e.ColumnIndex == dgvOverduePenalty.Columns["colActions"].Index)
             {
                 var rowInfo = dgvOverduePenalty.Rows[e.RowIndex].Tag as ReturnRowInfo;
@@ -180,7 +331,7 @@ namespace LibraryManagementSystem.view
 
                 if (result == DialogResult.Yes)
                 {
-                    bool received = HomeContoller.ReceiveReturnedBook(rowInfo.BorrowId);
+                    bool received = reportController.ReceiveReturnedBook(rowInfo.BorrowId);
                     if (!received)
                     {
                         MessageBox.Show("Failed to receive the return. Please try again.", "Error",

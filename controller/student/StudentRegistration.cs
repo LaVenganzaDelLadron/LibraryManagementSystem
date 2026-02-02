@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem.model;
+using LibraryManagementSystem.core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace LibraryManagementSystem.controller.studentRegistration
 {
     internal class StudentRegistration
     {
-        private static readonly string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "students.json");
+        private static readonly string filePath = DataPathHelper.GetDataFilePath("students.json");
 
         private List<Users> LoadStudents()
         {

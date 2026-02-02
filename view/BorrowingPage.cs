@@ -16,7 +16,9 @@ namespace LibraryManagementSystem.view
     public partial class BorrowingPage : Form
     {
         private BorrowController borrowController;
+        private LibraryManagementSystem.controller.report.ReturnedController returnedController;
         private Guid selectedBorrowId;
+        private string selectedRecordType; // Store record type for deletion
         private FileSystemWatcher fileWatcher;
         private Timer refreshTimer;
         private string currentFilter = "All";
@@ -25,6 +27,7 @@ namespace LibraryManagementSystem.view
         {
             InitializeComponent();
             borrowController = new BorrowController();
+            returnedController = new LibraryManagementSystem.controller.report.ReturnedController();
             InitializeFileWatcher();
             InitializeRefreshTimer();
             InitializeDataGridViewEvents();
@@ -186,6 +189,7 @@ namespace LibraryManagementSystem.view
                 currentFilter = "All";
                 var borrows = borrowController.GetAllBorrows();
                 var rejectedBorrows = borrowController.GetAllRejectedBorrows();
+                var returnedBooks = returnedController.GetAllReturnedBooks();
                 
                 // Store current scroll position
                 int scrollPosition = dgvBorrowingRequests.FirstDisplayedScrollingRowIndex;
@@ -227,6 +231,23 @@ namespace LibraryManagementSystem.view
                     }
                 }
 
+                // Load returned books
+                if (returnedBooks != null && returnedBooks.Count > 0)
+                {
+                    foreach (var returned in returnedBooks)
+                    {
+                        int rowIndex = dgvBorrowingRequests.Rows.Add(
+                            returned.StudentName,
+                            returned.BookRequested,
+                            returned.RequestDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                            "Returned",
+                            "⋮"
+                        );
+                        // Store the returned book ID in the row's Tag
+                        dgvBorrowingRequests.Rows[rowIndex].Tag = new { Type = "Returned", Id = returned.Id };
+                    }
+                }
+
                 // Restore scroll position if valid
                 if (scrollPosition >= 0 && scrollPosition < dgvBorrowingRequests.Rows.Count)
                 {
@@ -244,32 +265,57 @@ namespace LibraryManagementSystem.view
             try
             {
                 currentFilter = status;
-                var allBorrows = borrowController.GetAllBorrows();
                 
                 // Store current scroll position
                 int scrollPosition = dgvBorrowingRequests.FirstDisplayedScrollingRowIndex;
                 
                 dgvBorrowingRequests.Rows.Clear();
 
-                // Filter based on COMPUTED display status, not raw enum
-                List<Borrow> filteredBorrows = allBorrows
-                    .Where(b => GetDisplayStatus(b).Equals(status, StringComparison.OrdinalIgnoreCase))
-                    .ToList();
-
-                if (filteredBorrows.Count > 0)
+                // Special handling for "Returned" status - load from returned.json instead of borrow.json
+                if (status.Equals("Returned", StringComparison.OrdinalIgnoreCase))
                 {
-                    foreach (var borrow in filteredBorrows)
+                    var returnedBooks = returnedController.GetAllReturnedBooks();
+                    
+                    if (returnedBooks != null && returnedBooks.Count > 0)
                     {
-                        string displayStatus = GetDisplayStatus(borrow);
-                        int rowIndex = dgvBorrowingRequests.Rows.Add(
-                            borrow.StudentName,
-                            borrow.BookRequested,
-                            borrow.RequestDate.ToString("yyyy-MM-dd HH:mm:ss"),
-                            displayStatus,
-                            "⋮"
-                        );
-                        // Store the actual Borrow ID in the row's Tag so filtering doesn't break selection
-                        dgvBorrowingRequests.Rows[rowIndex].Tag = new { Type = "Borrow", Id = borrow.Id };
+                        foreach (var returned in returnedBooks)
+                        {
+                            int rowIndex = dgvBorrowingRequests.Rows.Add(
+                                returned.StudentName,
+                                returned.BookRequested,
+                                returned.RequestDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                                "Returned",
+                                "⋮"
+                            );
+                            dgvBorrowingRequests.Rows[rowIndex].Tag = new { Type = "Returned", Id = returned.Id };
+                        }
+                    }
+                }
+                else
+                {
+                    // For other statuses, load from active borrows
+                    var allBorrows = borrowController.GetAllBorrows();
+
+                    // Filter based on COMPUTED display status, not raw enum
+                    List<Borrow> filteredBorrows = allBorrows
+                        .Where(b => GetDisplayStatus(b).Equals(status, StringComparison.OrdinalIgnoreCase))
+                        .ToList();
+
+                    if (filteredBorrows.Count > 0)
+                    {
+                        foreach (var borrow in filteredBorrows)
+                        {
+                            string displayStatus = GetDisplayStatus(borrow);
+                            int rowIndex = dgvBorrowingRequests.Rows.Add(
+                                borrow.StudentName,
+                                borrow.BookRequested,
+                                borrow.RequestDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                                displayStatus,
+                                "⋮"
+                            );
+                            // Store the actual Borrow ID in the row's Tag so filtering doesn't break selection
+                            dgvBorrowingRequests.Rows[rowIndex].Tag = new { Type = "Borrow", Id = borrow.Id };
+                        }
                     }
                 }
 
@@ -324,17 +370,25 @@ namespace LibraryManagementSystem.view
                 dynamic tagData = selectedRow.Tag;
                 string recordType = tagData.Type;
                 Guid recordId = tagData.Id;
+                string status = selectedRow.Cells["colStatus"].Value?.ToString() ?? "";
+
+                // Store both ID and type for deletion
+                selectedBorrowId = recordId;
+                selectedRecordType = recordType;
 
                 if (recordType == "Reject")
                 {
                     // For rejected requests, show remove option only
-                    selectedBorrowId = recordId;
+                    ShowRemoveMenu();
+                }
+                else if (recordType == "Returned")
+                {
+                    // For returned books, show remove option only
                     ShowRemoveMenu();
                 }
                 else if (recordType == "Borrow")
                 {
                     // For active borrowing requests, show approve/reject options
-                    selectedBorrowId = recordId;
                     contextMenuStripActions.Show(Cursor.Position);
                 }
             }
@@ -344,9 +398,54 @@ namespace LibraryManagementSystem.view
         {
             ContextMenuStrip removeMenu = new ContextMenuStrip();
             ToolStripMenuItem removeItem = new ToolStripMenuItem("Remove");
-            removeItem.Click += RemoveRejectedRequest_Click;
+            removeItem.Click += RemoveRecord_Click;
             removeMenu.Items.Add(removeItem);
             removeMenu.Show(Cursor.Position);
+        }
+
+        private void RemoveRecord_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to delete this record?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    bool success = false;
+
+                    // Use the stored record type to determine which delete method to call
+                    if (selectedRecordType == "Reject")
+                    {
+                        success = borrowController.DeleteRejectedBorrow(selectedBorrowId);
+                    }
+                    else if (selectedRecordType == "Returned")
+                    {
+                        success = returnedController.DeleteReturnedBook(selectedBorrowId);
+                    }
+                    else if (selectedRecordType == "Borrow")
+                    {
+                        success = borrowController.DeleteBorrowRecord(selectedBorrowId);
+                    }
+
+                    if (success)
+                    {
+                        MessageBox.Show("Record deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadBorrowingRequests();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete record. Make sure it is a returned book, rejected request, or completed transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error deleting record: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void RemoveRejectedRequest_Click(object sender, EventArgs e)
@@ -502,6 +601,9 @@ namespace LibraryManagementSystem.view
                 return "Pending";
 
             if (borrow.Status == LibraryManagementSystem.enumerator.BorrowStatus.Returned)
+                return "Returned";
+
+            if (borrow.Status == LibraryManagementSystem.enumerator.BorrowStatus.Returning)
                 return "Returned";
 
             // Lost status (if enum supports it)

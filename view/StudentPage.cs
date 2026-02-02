@@ -120,22 +120,6 @@ namespace LibraryManagementSystem
             MessageBox.Show($"Edit student: {name}", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void banToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (_selectedRowIndex < 0)
-            {
-                return;
-            }
-
-            string name = dataGridViewStudents.Rows[_selectedRowIndex].Cells["StudentName"].Value.ToString();
-            DialogResult result = MessageBox.Show($"Ban student: {name}?", "Confirm Ban", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                MessageBox.Show("Student has been banned.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_selectedRowIndex < 0)
@@ -144,13 +128,13 @@ namespace LibraryManagementSystem
             }
 
             string name = dataGridViewStudents.Rows[_selectedRowIndex].Cells["StudentName"].Value.ToString();
-            DialogResult result = MessageBox.Show($"Remove student: {name}?", "Confirm Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show($"Delete account for: {name}?\n\nThis action cannot be undone.", "Confirm Delete Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
                 dataGridViewStudents.Rows.RemoveAt(_selectedRowIndex);
                 _selectedRowIndex = -1;
-                MessageBox.Show("Student removed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Student account deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

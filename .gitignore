@@ -1,0 +1,21 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build output
+bin/
+obj/
+
+# Debug files
+*.exe
+*.dll
+*.pdb
+
+# Logs & temp
+*.log
+
+# JSON runtime data
+bin/**/*.json

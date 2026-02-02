@@ -27,6 +27,7 @@ namespace LibraryManagementSystem
         BorrowingPage borrowing = new BorrowingPage();
         MonitoringPage monitoring = new MonitoringPage();
         ReportPage report = new ReportPage();
+        NotificationPage notification = new NotificationPage();
         LogoutPage logout = new LogoutPage();
 
 
@@ -403,6 +404,11 @@ namespace LibraryManagementSystem
             pnlNav.Left = btnLogout.Left;
 
             LoadForm(monitoring);
+        }
+
+        private void pictureBoxNotification_Click(object sender, EventArgs e)
+        {
+            LoadForm(notification);
         }
     }
 }

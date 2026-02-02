@@ -55,6 +55,11 @@
     <Compile Include="controller\dashboard\DashboardController.cs" />
     <Compile Include="controller\home\HomeContoller.cs" />
     <Compile Include="controller\monitoring\MonitoringController.cs" />
+    <Compile Include="controller\notification\NotificationController.cs" />
+    <Compile Include="controller\payment\PaymentController.cs" />
+    <Compile Include="controller\report\CirculationRate.cs" />
+    <Compile Include="controller\report\ReportController.cs" />
+    <Compile Include="controller\report\ReturnedController.cs" />
     <Compile Include="controller\student\StudentNotificationController.cs" />
     <Compile Include="controller\student\StudentRegistration.cs" />
     <Compile Include="core\clientcontroller\book\BookServices.cs" />
@@ -77,6 +82,7 @@
     <Compile Include="model\Category.cs" />
     <Compile Include="model\CategoryResponse.cs" />
     <Compile Include="model\Notification.cs" />
+    <Compile Include="model\Payment.cs" />
     <Compile Include="model\Reject.cs" />
     <Compile Include="model\RejectResponse.cs" />
     <Compile Include="model\StudentResponse.cs" />
@@ -139,11 +145,23 @@
     <Compile Include="view\modal\AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\modal\OverduePenaltyDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\modal\OverduePenaltyDetails.Designer.cs">
+      <DependentUpon>OverduePenaltyDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\MonitoringPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\MonitoringPage.Designer.cs">
       <DependentUpon>MonitoringPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\NotificationPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\NotificationPage.Designer.cs">
+      <DependentUpon>NotificationPage.cs</DependentUpon>
     </Compile>
     <Compile Include="view\ReportPage.cs">
       <SubType>Form</SubType>
@@ -202,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\MonitoringPage.resx">
       <DependentUpon>MonitoringPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\NotificationPage.resx">
+      <DependentUpon>NotificationPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\ReportPage.resx">
       <DependentUpon>ReportPage.cs</DependentUpon>

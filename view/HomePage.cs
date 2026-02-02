@@ -122,11 +122,17 @@ namespace LibraryManagementSystem
 
             foreach (var transaction in recentTransactions)
             {
+                string displayStatus = transaction.Status;
+                if (displayStatus.Equals("Returning", StringComparison.OrdinalIgnoreCase))
+                {
+                    displayStatus = "Returned";
+                }
+                
                 dataGridViewTransactions.Rows.Add(
                     transaction.Student,
                     transaction.Book,
                     transaction.Date,
-                    transaction.Status
+                    displayStatus
                 );
             }
         }

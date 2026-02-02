@@ -35,7 +35,6 @@
             this.dataGridViewStudents = new System.Windows.Forms.DataGridView();
             this.contextMenuStripActions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.banToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudents)).BeginInit();
             this.contextMenuStripActions.SuspendLayout();
@@ -98,30 +97,22 @@
             this.contextMenuStripActions.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
-            this.banToolStripMenuItem,
             this.removeToolStripMenuItem});
             this.contextMenuStripActions.Name = "contextMenuStripActions";
-            this.contextMenuStripActions.Size = new System.Drawing.Size(133, 76);
+            this.contextMenuStripActions.Size = new System.Drawing.Size(180, 52);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // banToolStripMenuItem
-            // 
-            this.banToolStripMenuItem.Name = "banToolStripMenuItem";
-            this.banToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
-            this.banToolStripMenuItem.Text = "Ban";
-            this.banToolStripMenuItem.Click += new System.EventHandler(this.banToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
-            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
+            this.removeToolStripMenuItem.Text = "Delete Account";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // StudentPage
@@ -151,7 +142,6 @@
         private System.Windows.Forms.DataGridView dataGridViewStudents;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripActions;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem banToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
     }
 }
