@@ -104,10 +104,10 @@ namespace LibraryManagementSystem.controller.report
             {
                 return new ReportMetrics
                 {
-                    CirculationRate = HomeContoller.GetCirculationRate(),
+                    CirculationRate = (double)HomeContoller.GetCirculationRateStatic(),
                     ActiveBorrowers = HomeContoller.GetActiveBorrowers(),
                     TotalBooks = HomeContoller.GetTotalBooks(),
-                    TotalUnpaidPenalties = HomeContoller.GetTotalUnpaidPenalties(),
+                    TotalUnpaidPenalties = HomeContoller.GetTotalUnpaidPenaltiesStatic(),
                     CollectionProgress = HomeContoller.GetPenaltyCollectionProgress()
                 };
             }
@@ -125,7 +125,7 @@ namespace LibraryManagementSystem.controller.report
         {
             try
             {
-                return HomeContoller.GetOverdueBooks();
+                return HomeContoller.GetOverdueBooksStatic();
             }
             catch (Exception ex)
             {

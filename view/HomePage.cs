@@ -168,19 +168,19 @@ namespace LibraryManagementSystem
         private void LoadCards()
         {
             // Load card statistics
-            int totalStudents = HomeContoller.GetTotalStudents();
+            int totalStudents = HomeContoller.GetTotalStudentsStatic();
             lblGetTotalStudents.Text = totalStudents.ToString();
 
-            int availableBooks = HomeContoller.GetAvailableBookTitles();
+            int availableBooks = HomeContoller.GetAvailableBookTitlesStatic();
             lblAvailableBooks.Text = availableBooks.ToString();
 
-            int borrowedCount = HomeContoller.GetBorrowedCount();
+            int borrowedCount = HomeContoller.GetBorrowedCountStatic();
             lblBorrowed.Text = borrowedCount.ToString(); // Borrowed count
 
-            int pendingCount = HomeContoller.GetPendingCount();
+            int pendingCount = HomeContoller.GetPendingCountStatic();
             lblPending.Text = pendingCount.ToString(); // Pending count
 
-            int overdueCount = HomeContoller.GetOverdueCount();
+            int overdueCount = HomeContoller.GetOverdueCountStatic();
             lblOverDue.Text = overdueCount.ToString(); // Overdue count
 
             // Load progress bars
@@ -204,7 +204,7 @@ namespace LibraryManagementSystem
 
         private void ShowOverdueDetails()
         {
-            var overdueBooks = HomeContoller.GetOverdueBooks();
+            var overdueBooks = HomeContoller.GetOverdueBooksStatic();
 
             if (overdueBooks == null || overdueBooks.Count == 0)
             {

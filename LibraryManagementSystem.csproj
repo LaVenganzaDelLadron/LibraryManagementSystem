@@ -76,6 +76,12 @@
     <Compile Include="core\student\StudentService.cs" />
     <Compile Include="enumerator\BorrowStatus.cs" />
     <Compile Include="enumerator\UserStatus.cs" />
+    <Compile Include="inheritance\AuthInherit.cs" />
+    <Compile Include="inheritance\BookInherit.cs" />
+    <Compile Include="inheritance\BorrowInherit.cs" />
+    <Compile Include="inheritance\HomeInherit.cs" />
+    <Compile Include="inheritance\NotifInherit.cs" />
+    <Compile Include="inheritance\StudentInherit.cs" />
     <Compile Include="model\AuthRequest.cs" />
     <Compile Include="model\AuthResponse.cs" />
     <Compile Include="model\BookResponse.cs" />

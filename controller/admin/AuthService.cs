@@ -5,10 +5,11 @@ using System.IO;
 using LibraryManagementSystem.core;
 using Newtonsoft.Json;
 using System.Linq;
+using LibraryManagementSystem.inheritance;
 
 namespace LibraryManagementSystem.controller
 {
-    internal class AuthService
+    internal class AuthService : AuthInherit
     {
         private static readonly string filePath = DataPathHelper.GetDataFilePath("users.json");
 
@@ -29,7 +30,7 @@ namespace LibraryManagementSystem.controller
         }
 
 
-        public bool Signup(string username, string email, string password)
+        public override bool Signup(string username, string email, string password)
         {
             var users = LoadUsers();
 
@@ -44,7 +45,7 @@ namespace LibraryManagementSystem.controller
         }
 
 
-        public bool Login(string email, string password)
+        public override bool Login(string email, string password)
         {
             var users = LoadUsers();
             string hash = PasswordHelper.HashPassword(password);

@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using LibraryManagementSystem.model;
 using LibraryManagementSystem.core;
+using LibraryManagementSystem.inheritance;
 
 namespace LibraryManagementSystem.controller.book
 {
-    internal class BookController
+    internal class BookController : BookInherit
     {
         private static readonly string filePath = DataPathHelper.GetDataFilePath("books.json");
 
@@ -28,7 +29,7 @@ namespace LibraryManagementSystem.controller.book
             System.IO.File.WriteAllText(filePath, json);
         }
 
-        public bool AddBook(string title, string author, DateTime publishedDate, string description, string categoryId, int copies) { 
+        public override bool AddBook(string title, string author, DateTime publishedDate, string description, string categoryId, int copies) { 
             
             var books = LoadBooks();
             books.Add(new Books(title, author, publishedDate, description, categoryId, copies));
@@ -91,7 +92,7 @@ namespace LibraryManagementSystem.controller.book
             return true;
         }
 
-        public bool UpdateBook(Books updatedBook)
+        public override bool UpdateBook(Books updatedBook)
         {
             try
             {

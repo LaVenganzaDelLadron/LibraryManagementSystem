@@ -7,10 +7,11 @@ using LibraryManagementSystem.model;
 using Newtonsoft.Json;
 using System.IO;
 using LibraryManagementSystem.core;
+using LibraryManagementSystem.inheritance;
 
 namespace LibraryManagementSystem.controller.notification
 {
-    internal class NotificationController
+    internal class NotificationController : NotifInherit
     {
         private string notificationsBasePath;
 
@@ -68,7 +69,7 @@ namespace LibraryManagementSystem.controller.notification
             return allNotifications;
         }
 
-        public List<Notification> GetStudentNotifications(string studentName)
+        public override dynamic GetStudentNotifications(string studentName)
         {
             List<Notification> studentNotifications = new List<Notification>();
 
@@ -140,6 +141,12 @@ namespace LibraryManagementSystem.controller.notification
             }
         }
 
+        // Abstract method implementation
+        public override bool SendNotification(string studentName, string message, NotificationType type)
+        {
+            return SendNotification(studentName, type.ToString(), message);
+        }
+
         public bool MarkAsRead(string studentName, Guid notificationId)
         {
             try
@@ -171,6 +178,14 @@ namespace LibraryManagementSystem.controller.notification
                 Console.WriteLine($"Error marking notification as read: {ex.Message}");
                 return false;
             }
+        }
+
+        // Abstract method implementation
+        public override bool MarkAsRead(Guid notificationId)
+        {
+            // Cannot implement without student name context
+            // This is a limitation of the current design
+            throw new NotImplementedException("Use MarkAsRead(string studentName, Guid notificationId) instead.");
         }
     }
 }

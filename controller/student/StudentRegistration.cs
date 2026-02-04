@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryManagementSystem.inheritance;
 
 namespace LibraryManagementSystem.controller.student
 {
-    internal class StudentRegistration
+    internal class StudentRegistration : StudentInherit
     {
         private static readonly string filePath = DataPathHelper.GetDataFilePath("students.json");
 
@@ -42,12 +43,21 @@ namespace LibraryManagementSystem.controller.student
             return true;
         }
 
-        public List<Users> GetAllStudents()
+        // Abstract method implementation
+        public override bool RegisterStudent(string firstName, string lastName, string email, string department)
+        {
+            string userName = $"{firstName.ToLower()}.{lastName.ToLower()}";
+            string defaultPassword = "student123";
+            string defaultContactNo = "N/A";
+            return RegisterStudent(userName, firstName, lastName, email, defaultPassword, defaultContactNo, department);
+        }
+
+        public override List<Users> GetAllStudents()
         {
             return LoadStudents();
         }
 
-        public bool DeleteStudent(string username)
+        public override bool DeleteStudent(string username)
         {
             try
             {
@@ -67,6 +77,37 @@ namespace LibraryManagementSystem.controller.student
             {
                 return false;
             }
+        }
+
+        // Abstract method implementation
+        public override bool UpdateStudent(string studentName, Users updatedStudent)
+        {
+            try
+            {
+                var students = LoadStudents();
+                var student = students.FirstOrDefault(s => s.UserName == studentName);
+                
+                if (student == null)
+                {
+                    return false;
+                }
+                
+                // Update student properties
+                students.Remove(student);
+                students.Add(updatedStudent);
+                SaveUsers(students);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public override Users GetStudentByName(string studentName)
+        {
+            var students = LoadStudents();
+            return students.FirstOrDefault(s => s.UserName == studentName);
         }
 
     }

@@ -7,10 +7,11 @@ using System.IO;
 using LibraryManagementSystem.model;
 using LibraryManagementSystem.core;
 using Newtonsoft.Json;
+using LibraryManagementSystem.inheritance;
 
 namespace LibraryManagementSystem.controller.book
 {
-    internal class BorrowController
+    internal class BorrowController : BorrowInherit
     {
         // Use the centralized DataPathHelper for consistent file path resolution
         private readonly string filePath;
@@ -169,7 +170,7 @@ namespace LibraryManagementSystem.controller.book
             }
         }
 
-        public bool CreateBorrowRequest(string studentName, string bookTitle)
+        public override bool CreateBorrowRequest(string studentName, string bookTitle)
         {
             try
             {
@@ -193,7 +194,7 @@ namespace LibraryManagementSystem.controller.book
             }
         }
 
-        public bool ApproveBorrowRequest(Guid borrowId)
+        public override bool ApproveBorrowRequest(Guid borrowId)
         {
             try
             {
@@ -230,7 +231,7 @@ namespace LibraryManagementSystem.controller.book
             }
         }
 
-        public bool RejectBorrowRequest(Guid borrowId)
+        public override bool RejectBorrowRequest(Guid borrowId)
         {
             try
             {

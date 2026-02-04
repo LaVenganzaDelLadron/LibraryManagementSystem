@@ -6,21 +6,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using LibraryManagementSystem.inheritance;
 
 
 namespace LibraryManagementSystem.controller
 {
-    internal class HomeContoller
+    internal class HomeContoller : HomeInherit
     {
         private const int BorrowDurationDays = 1;
         private const decimal FinePerHour = 3m;
+
+        // Static instance for backward compatibility
+        private static HomeContoller _instance;
+        public static HomeContoller Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new HomeContoller();
+                return _instance;
+            }
+        }
 
         // Data file paths are now centralized through DataPathHelper
         private static string GetStudentsPath() => LibraryManagementSystem.core.DataPathHelper.GetDataFilePath("students.json");
         private static string GetBooksPath() => LibraryManagementSystem.core.DataPathHelper.GetDataFilePath("books.json");
         private static string GetBorrowPath() => LibraryManagementSystem.core.DataPathHelper.GetDataFilePath("borrow.json");
 
-        public static int GetTotalStudents()
+        public override int GetTotalStudents()
         {
             try
             {
@@ -39,28 +52,28 @@ namespace LibraryManagementSystem.controller
             }
         }
 
-        public static int GetAvailableBookTitles()
+        public override List<string> GetAvailableBookTitles()
         {
             try
             {
                 string filePath = GetBooksPath();
                 if (!File.Exists(filePath))
-                    return 0;
+                    return new List<string>();
 
                 var books = JsonConvert.DeserializeObject<List<Books>>(
                     File.ReadAllText(filePath)
                 );
 
-                return books.Count(b => b.Copies > 0);
+                return books.Where(b => b.Copies > 0).Select(b => b.Title).ToList();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Book dashboard error: {ex.Message}");
-                return 0;
+                return new List<string>();
             }
         }
 
-        public static int GetBorrowedCount()
+        public override int GetBorrowedCount()
         {
             try
             {
@@ -80,7 +93,7 @@ namespace LibraryManagementSystem.controller
             }
         }
 
-        public static int GetPendingCount()
+        public override int GetPendingCount()
         {
             try
             {
@@ -100,7 +113,7 @@ namespace LibraryManagementSystem.controller
             }
         }
 
-        public static int GetOverdueCount()
+        public override int GetOverdueCount()
         {
             try
             {
@@ -139,7 +152,7 @@ namespace LibraryManagementSystem.controller
                     return 0;
 
                 int totalCopies = books.Sum(b => b.Copies);
-                int borrowedCount = GetBorrowedCount();
+                int borrowedCount = GetBorrowedCountStatic();
 
                 if (totalCopies == 0)
                     return 0;
@@ -247,13 +260,13 @@ namespace LibraryManagementSystem.controller
             }
         }
 
-        public static double GetCirculationRate()
+        public override decimal GetCirculationRate()
         {
             try
             {
                 string borrowFilePath = GetBorrowPath();
                 if (!File.Exists(borrowFilePath))
-                    return 0;
+                    return 0m;
 
                 var json = File.ReadAllText(borrowFilePath);
                 var borrows = JsonConvert.DeserializeObject<List<Borrow>>(json);
@@ -277,17 +290,26 @@ namespace LibraryManagementSystem.controller
                 int totalBooks = books.Sum(b => b.Copies);
 
                 if (totalBooks == 0)
-                    return 0;
+                    return 0m;
 
-                return Math.Round((borrowedCount / (double)totalBooks) * 100, 2);
+                return (decimal)Math.Round((borrowedCount / (double)totalBooks) * 100, 2);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Circulation rate error: {ex.Message}");
-                return 0;
+                return 0m;
             }
         }
-
+        // Static wrappers for backward compatibility
+        public static int GetTotalBooksStatic() => Instance.GetAvailableBookTitles().Count;
+        public static int GetBorrowedCountStatic() => Instance.GetBorrowedCount();
+        public static decimal GetCirculationRateStatic() => Instance.GetCirculationRate();
+        public static decimal GetTotalUnpaidPenaltiesStatic() => Instance.GetTotalUnpaidPenalties();
+        public static List<dynamic> GetOverdueBooksStatic() => Instance.GetOverdueBooks();
+        public static int GetTotalStudentsStatic() => Instance.GetTotalStudents();
+        public static int GetAvailableBookTitlesStatic() => Instance.GetAvailableBookTitles().Count;
+        public static int GetPendingCountStatic() => Instance.GetPendingCount();
+        public static int GetOverdueCountStatic() => Instance.GetOverdueCount();
         public static int GetActiveBorrowers()
         {
             try
@@ -340,13 +362,13 @@ namespace LibraryManagementSystem.controller
             }
         }
 
-        public static decimal GetTotalUnpaidPenalties()
+        public override decimal GetTotalUnpaidPenalties()
         {
             try
             {
                 string borrowFilePath = GetBorrowPath();
                 if (!File.Exists(borrowFilePath))
-                    return 0;
+                    return 0m;
 
                 var json = File.ReadAllText(borrowFilePath);
                 var borrows = JsonConvert.DeserializeObject<List<Borrow>>(json);
@@ -372,7 +394,7 @@ namespace LibraryManagementSystem.controller
             }
         }
 
-        public static List<dynamic> GetOverdueBooks()
+        public override List<dynamic> GetOverdueBooks()
         {
             try
             {
@@ -437,7 +459,7 @@ namespace LibraryManagementSystem.controller
         {
             try
             {
-                decimal totalPenalties = GetTotalUnpaidPenalties();
+                decimal totalPenalties = GetTotalUnpaidPenaltiesStatic();
                 // Assuming some amount collected (for demo, calculate as partial)
                 if (totalPenalties == 0)
                     return 0;
