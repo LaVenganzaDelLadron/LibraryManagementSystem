@@ -90,10 +90,10 @@
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(96, 385);
-            this.textBoxPassword.Multiline = true;
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(278, 40);
+            this.textBoxPassword.Size = new System.Drawing.Size(278, 22);
             this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -141,6 +141,7 @@
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "show password";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Signup
             // 

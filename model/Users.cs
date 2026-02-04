@@ -8,7 +8,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LibraryManagementSystem.model
 {
-    internal class Users
+    public class Users
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }

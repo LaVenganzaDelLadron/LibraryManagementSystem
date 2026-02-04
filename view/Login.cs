@@ -43,8 +43,9 @@ namespace LibraryManagementSystem
 
             if (isSuccess)
             {
+                string username = authService.GetLoggedInUsername(email, password);
                 MessageBox.Show("Login successful!");
-                Dashboard dashboard = new Dashboard();
+                Dashboard dashboard = new Dashboard(username);
                 dashboard.Show();
                 this.Hide();
             }
@@ -54,6 +55,11 @@ namespace LibraryManagementSystem
             }
 
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxPassword.UseSystemPasswordChar = !checkBox1.Checked;
         }
     }
 }

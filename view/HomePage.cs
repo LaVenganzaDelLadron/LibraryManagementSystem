@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem.controller;
+using LibraryManagementSystem.view;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,12 @@ namespace LibraryManagementSystem
 {
     public partial class HomePage : Form
     {
+        StudentPage studentPage = new StudentPage();
+        BookPage bookPage = new BookPage();
+        MonitoringPage monitoringPage = new MonitoringPage();
+        ReportPage reportPage = new ReportPage();
+
+
         public HomePage()
         {
             InitializeComponent();
@@ -257,7 +264,5 @@ namespace LibraryManagementSystem
         {
             dataGridViewTransactions.Cursor = Cursors.Default;
         }
-
-
     }
 }

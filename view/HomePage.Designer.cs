@@ -52,20 +52,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridViewTransactions = new System.Windows.Forms.DataGridView();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -73,15 +60,11 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransactions)).BeginInit();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(52, 152, 219);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.panel1.Controls.Add(this.lblGetTotalStudents);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(21, 12);
@@ -138,7 +121,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(46, 204, 113);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.panel2.Controls.Add(this.lblAvailableBooks);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(218, 12);
@@ -172,7 +155,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(155, 89, 182);
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
             this.panel3.Controls.Add(this.lblBorrowed);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(414, 12);
@@ -205,7 +188,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(241, 196, 15);
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(196)))), ((int)(((byte)(15)))));
             this.panel4.Controls.Add(this.lblPending);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Location = new System.Drawing.Point(615, 12);
@@ -238,7 +221,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(231, 76, 60);
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.panel5.Controls.Add(this.lblOverDue);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(816, 12);
@@ -249,7 +232,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(52, 73, 94);
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.panel6.Controls.Add(this.progressBarBorrowRate);
             this.panel6.Controls.Add(this.label14);
             this.panel6.Controls.Add(this.progressBarReturnRate);
@@ -259,13 +242,13 @@
             this.panel6.Controls.Add(this.label11);
             this.panel6.Location = new System.Drawing.Point(690, 174);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(301, 383);
+            this.panel6.Size = new System.Drawing.Size(301, 509);
             this.panel6.TabIndex = 4;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             // 
             // progressBarBorrowRate
             // 
-            this.progressBarBorrowRate.Location = new System.Drawing.Point(19, 220);
+            this.progressBarBorrowRate.Location = new System.Drawing.Point(19, 259);
             this.progressBarBorrowRate.Name = "progressBarBorrowRate";
             this.progressBarBorrowRate.Size = new System.Drawing.Size(265, 17);
             this.progressBarBorrowRate.TabIndex = 9;
@@ -275,7 +258,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label14.Location = new System.Drawing.Point(15, 189);
+            this.label14.Location = new System.Drawing.Point(15, 228);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(98, 19);
             this.label14.TabIndex = 8;
@@ -283,7 +266,7 @@
             // 
             // progressBarReturnRate
             // 
-            this.progressBarReturnRate.Location = new System.Drawing.Point(19, 157);
+            this.progressBarReturnRate.Location = new System.Drawing.Point(19, 175);
             this.progressBarReturnRate.Name = "progressBarReturnRate";
             this.progressBarReturnRate.Size = new System.Drawing.Size(265, 17);
             this.progressBarReturnRate.TabIndex = 7;
@@ -293,7 +276,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label13.Location = new System.Drawing.Point(15, 126);
+            this.label13.Location = new System.Drawing.Point(15, 144);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 19);
             this.label13.TabIndex = 6;
@@ -340,141 +323,9 @@
             this.dataGridViewTransactions.RowHeadersWidth = 51;
             this.dataGridViewTransactions.RowTemplate.Height = 24;
             this.dataGridViewTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTransactions.Size = new System.Drawing.Size(650, 299);
+            this.dataGridViewTransactions.Size = new System.Drawing.Size(650, 468);
             this.dataGridViewTransactions.TabIndex = 5;
             this.dataGridViewTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTransactions_CellContentClick);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel7.Controls.Add(this.label15);
-            this.panel7.Controls.Add(this.label16);
-            this.panel7.Location = new System.Drawing.Point(96, 563);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(175, 142);
-            this.panel7.TabIndex = 3;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label15.Location = new System.Drawing.Point(73, 76);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(27, 27);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "+";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label16.Location = new System.Drawing.Point(40, 49);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 27);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Students";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel8.Controls.Add(this.label17);
-            this.panel8.Controls.Add(this.label18);
-            this.panel8.Location = new System.Drawing.Point(320, 563);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(175, 142);
-            this.panel8.TabIndex = 4;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label17.Location = new System.Drawing.Point(70, 76);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(27, 27);
-            this.label17.TabIndex = 2;
-            this.label17.Text = "+";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label18.Location = new System.Drawing.Point(53, 49);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(74, 27);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Books";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel9.Controls.Add(this.label19);
-            this.panel9.Controls.Add(this.label20);
-            this.panel9.Location = new System.Drawing.Point(536, 563);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(175, 142);
-            this.panel9.TabIndex = 4;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label19.Location = new System.Drawing.Point(65, 76);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(27, 27);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "+";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label20.Location = new System.Drawing.Point(54, 49);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(64, 27);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "Fines";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel10.Controls.Add(this.label21);
-            this.panel10.Controls.Add(this.label22);
-            this.panel10.Location = new System.Drawing.Point(747, 563);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(175, 142);
-            this.panel10.TabIndex = 4;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label21.Location = new System.Drawing.Point(71, 76);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(27, 27);
-            this.label21.TabIndex = 2;
-            this.label21.Text = "+";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label22.Location = new System.Drawing.Point(42, 49);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(90, 27);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "Reports";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label23
             // 
@@ -486,27 +337,12 @@
             this.label23.TabIndex = 6;
             this.label23.Text = "Recent Transactions";
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(16, 532);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(146, 25);
-            this.label24.TabIndex = 7;
-            this.label24.Text = "Quick Actions";
-            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 708);
-            this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.panel10);
-            this.Controls.Add(this.panel9);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.dataGridViewTransactions);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -530,14 +366,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransactions)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -569,19 +397,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ProgressBar progressBarInventory;
         private System.Windows.Forms.DataGridView dataGridViewTransactions;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
     }
 }

@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem.controller.studentRegistration;
+﻿using LibraryManagementSystem.controller.student;
+using LibraryManagementSystem.model;
 using LibraryManagementSystem.view.modal;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace LibraryManagementSystem
         AddStudent addStudent = new AddStudent();
         private int _selectedRowIndex = -1;
         private StudentRegistration _studentRegistration = new StudentRegistration();
+        private List<Users> _studentList = new List<Users>();
 
         public StudentPage()
         {
@@ -72,6 +74,7 @@ namespace LibraryManagementSystem
         {
             dataGridViewStudents.Rows.Clear();
             var students = _studentRegistration.GetAllStudents();
+            _studentList = students;
 
             foreach (var student in students)
             {
@@ -109,32 +112,51 @@ namespace LibraryManagementSystem
             }
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (_selectedRowIndex < 0)
-            {
-                return;
-            }
-
-            string name = dataGridViewStudents.Rows[_selectedRowIndex].Cells["StudentName"].Value.ToString();
-            MessageBox.Show($"Edit student: {name}", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_selectedRowIndex < 0)
+            if (_selectedRowIndex < 0 || _selectedRowIndex >= _studentList.Count)
             {
+                MessageBox.Show("Please select a student to delete.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string name = dataGridViewStudents.Rows[_selectedRowIndex].Cells["StudentName"].Value.ToString();
-            DialogResult result = MessageBox.Show($"Delete account for: {name}?\n\nThis action cannot be undone.", "Confirm Delete Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
+            try
             {
-                dataGridViewStudents.Rows.RemoveAt(_selectedRowIndex);
-                _selectedRowIndex = -1;
-                MessageBox.Show("Student account deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var selectedStudent = _studentList[_selectedRowIndex];
+                string name = $"{selectedStudent.FirstName} {selectedStudent.LastName}";
+                string username = selectedStudent.UserName;
+
+                DialogResult result = MessageBox.Show(
+                    $"Delete account for: {name}?\n\nUsername: {username}\n\nThis action cannot be undone.",
+                    "Confirm Delete Account",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Delete from the data source
+                    bool deleted = _studentRegistration.DeleteStudent(username);
+                    
+                    if (deleted)
+                    {
+                        // Reload the data to refresh the grid
+                        LoadStudentData();
+                        _selectedRowIndex = -1;
+                        MessageBox.Show("Student account deleted successfully!", "Success",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete student account. Please try again.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error deleting student: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

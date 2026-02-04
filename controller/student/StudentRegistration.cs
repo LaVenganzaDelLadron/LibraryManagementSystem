@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagementSystem.controller.studentRegistration
+namespace LibraryManagementSystem.controller.student
 {
     internal class StudentRegistration
     {
@@ -45,6 +45,28 @@ namespace LibraryManagementSystem.controller.studentRegistration
         public List<Users> GetAllStudents()
         {
             return LoadStudents();
+        }
+
+        public bool DeleteStudent(string username)
+        {
+            try
+            {
+                var students = LoadStudents();
+                var studentToRemove = students.FirstOrDefault(s => s.UserName == username);
+                
+                if (studentToRemove == null)
+                {
+                    return false;
+                }
+                
+                students.Remove(studentToRemove);
+                SaveUsers(students);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }

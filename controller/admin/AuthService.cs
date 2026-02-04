@@ -52,5 +52,14 @@ namespace LibraryManagementSystem.controller
             return users.Any(u => u.Email == email && u.Password == hash);
         }
 
+        public string GetLoggedInUsername(string email, string password)
+        {
+            var users = LoadUsers();
+            string hash = PasswordHelper.HashPassword(password);
+
+            var user = users.FirstOrDefault(u => u.Email == email && u.Password == hash);
+            return user?.UserName;
+        }
+
     }
 }

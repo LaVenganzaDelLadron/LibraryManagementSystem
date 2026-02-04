@@ -20,6 +20,7 @@ namespace LibraryManagementSystem
         private readonly System.Windows.Forms.Timer searchTimer = new System.Windows.Forms.Timer();
         private CancellationTokenSource searchCts;
         private DashboardController dashboardController = new DashboardController();
+        private string currentUsername;
 
         HomePage home = new HomePage();
         BookPage book = new BookPage();
@@ -28,6 +29,7 @@ namespace LibraryManagementSystem
         MonitoringPage monitoring = new MonitoringPage();
         ReportPage report = new ReportPage();
         NotificationPage notification = new NotificationPage();
+        ProfilePage profile;
         LogoutPage logout = new LogoutPage();
 
 
@@ -43,10 +45,15 @@ namespace LibraryManagementSystem
                 int nHeightEllipse
             );
 
-        public Dashboard()
+        public Dashboard(string username)
         {
             InitializeComponent();
-            lblAdmin.Text = dashboardController.GetUsername();
+            currentUsername = username;
+            lblAdmin.Text = currentUsername;
+            
+            // Initialize ProfilePage with current username
+            profile = new ProfilePage(currentUsername);
+            
             LoadForm(new HomePage());
 
             InitializeSearch();
@@ -409,6 +416,18 @@ namespace LibraryManagementSystem
         private void pictureBoxNotification_Click(object sender, EventArgs e)
         {
             LoadForm(notification);
+        }
+
+        private void pictureBoxProfile_Click(object sender, EventArgs e)
+        {
+            
+            profile.ShowDialog();
+
+        }
+
+        private void lblAdmin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

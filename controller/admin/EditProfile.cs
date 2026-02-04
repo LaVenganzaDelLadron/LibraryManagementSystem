@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagementSystem.enumerator
+namespace LibraryManagementSystem.controller.admin
 {
-    public enum UserStatus
+    internal class EditProfile
     {
-        Banned,
-        Active,
     }
 }

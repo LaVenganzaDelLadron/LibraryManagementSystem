@@ -1,4 +1,4 @@
-﻿using LibraryManagementSystem.controller.studentRegistration;
+﻿using LibraryManagementSystem.controller.student;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

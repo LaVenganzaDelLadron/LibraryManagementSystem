@@ -166,13 +166,30 @@ namespace LibraryManagementSystem
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_selectedRowIndex < 0)
+            if (_selectedRowIndex < 0 || _selectedRowIndex >= _currentBooks.Count)
             {
+                MessageBox.Show("Please select a book to edit.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string bookTitle = dataGridViewBooks.Rows[_selectedRowIndex].Cells["Title"].Value.ToString();
-            MessageBox.Show($"Edit functionality for '{bookTitle}' will be implemented soon.", "Edit Book", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var selectedBook = _currentBooks[_selectedRowIndex];
+            if (selectedBook == null)
+            {
+                MessageBox.Show("Unable to load selected book.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (var editBook = new EditBook(selectedBook))
+            {
+                if (editBook.ShowDialog() == DialogResult.OK)
+                {
+                    LoadBooksData();
+                    MessageBox.Show("Book updated successfully!", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using LibraryManagementSystem.controller;
 using LibraryManagementSystem.controller.report;
 using LibraryManagementSystem.controller.payment;
 using LibraryManagementSystem.view.modal;
+using LibraryManagementSystem.core;
 
 namespace LibraryManagementSystem.view
 {
@@ -346,6 +348,209 @@ namespace LibraryManagementSystem.view
                     LoadReportData();
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Create export folder in Downloads
+                string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
+                string exportFolder = Path.Combine(downloadsPath, "LibraryExports");
+                if (!Directory.Exists(exportFolder))
+                {
+                    Directory.CreateDirectory(exportFolder);
+                }
+
+                // Generate filename with current date
+                string dateStamp = DateTime.Now.ToString("yyyy-MM-dd_HHmmss");
+
+                // Export all data
+                ExportBorrowedBooks(exportFolder, dateStamp);
+                ExportPayments(exportFolder, dateStamp);
+                ExportRejected(exportFolder, dateStamp);
+                ExportReturned(exportFolder, dateStamp);
+
+                MessageBox.Show($"Data exported successfully to:\n{exportFolder}", "Export Complete",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Open the export folder
+                System.Diagnostics.Process.Start("explorer.exe", exportFolder);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error exporting data: {ex.Message}", "Export Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ExportBorrowedBooks(string folder, string dateStamp)
+        {
+            try
+            {
+                string borrowFilePath = DataPathHelper.GetDataFilePath("borrow.json");
+                if (!File.Exists(borrowFilePath))
+                    return;
+
+                var json = File.ReadAllText(borrowFilePath);
+                var borrows = Newtonsoft.Json.JsonConvert.DeserializeObject<List<dynamic>>(json) ?? new List<dynamic>();
+
+                string csvPath = Path.Combine(folder, $"BorrowedBooks_{dateStamp}.csv");
+                using (StreamWriter sw = new StreamWriter(csvPath, false, Encoding.UTF8))
+                {
+                    // Header
+                    sw.WriteLine("ID,Student Name,Book Requested,Request Date,Return Date,Status,Fine Paid,Received By Librarian");
+
+                    // Data rows
+                    foreach (var borrow in borrows)
+                    {
+                        sw.WriteLine($"{EscapeCsv(borrow.Id?.ToString())}," +
+                                   $"{EscapeCsv(borrow.StudentName?.ToString())}," +
+                                   $"{EscapeCsv(borrow.BookRequested?.ToString())}," +
+                                   $"{EscapeCsv(borrow.RequestDate?.ToString())}," +
+                                   $"{EscapeCsv(borrow.ReturnDate?.ToString())}," +
+                                   $"{EscapeCsv(borrow.Status?.ToString())}," +
+                                   $"{EscapeCsv(borrow.FinePaid?.ToString())}," +
+                                   $"{EscapeCsv(borrow.ReceivedByLibrarian?.ToString())}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error exporting borrowed books: {ex.Message}");
+            }
+        }
+
+        private void ExportPayments(string folder, string dateStamp)
+        {
+            try
+            {
+                string paymentFilePath = DataPathHelper.GetDataFilePath("payments.json");
+                if (!File.Exists(paymentFilePath))
+                    return;
+
+                var json = File.ReadAllText(paymentFilePath);
+                var payments = Newtonsoft.Json.JsonConvert.DeserializeObject<List<dynamic>>(json) ?? new List<dynamic>();
+
+                string csvPath = Path.Combine(folder, $"Payments_{dateStamp}.csv");
+                using (StreamWriter sw = new StreamWriter(csvPath, false, Encoding.UTF8))
+                {
+                    // Header
+                    sw.WriteLine("Student Name,Total Penalty,Amount Paid,Unpaid Balance,Paid Percentage,Unpaid Percentage");
+
+                    // Data rows
+                    foreach (var payment in payments)
+                    {
+                        sw.WriteLine($"{EscapeCsv(payment.StudentName?.ToString())}," +
+                                   $"{EscapeCsv(payment.TotalPenalty?.ToString())}," +
+                                   $"{EscapeCsv(payment.AmountPaid?.ToString())}," +
+                                   $"{EscapeCsv(payment.UnpaidBalance?.ToString())}," +
+                                   $"{EscapeCsv(payment.PaidPercentage?.ToString())}," +
+                                   $"{EscapeCsv(payment.UnpaidPercentage?.ToString())}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error exporting payments: {ex.Message}");
+            }
+        }
+
+        private void ExportRejected(string folder, string dateStamp)
+        {
+            try
+            {
+                string rejectFilePath = DataPathHelper.GetDataFilePath("reject.json");
+                if (!File.Exists(rejectFilePath))
+                    return;
+
+                var json = File.ReadAllText(rejectFilePath);
+                var rejects = Newtonsoft.Json.JsonConvert.DeserializeObject<List<dynamic>>(json) ?? new List<dynamic>();
+
+                string csvPath = Path.Combine(folder, $"Rejected_{dateStamp}.csv");
+                using (StreamWriter sw = new StreamWriter(csvPath, false, Encoding.UTF8))
+                {
+                    // Header
+                    sw.WriteLine("ID,Student Name,Book Requested,Request Date,Rejection Date,Reason");
+
+                    // Data rows
+                    foreach (var reject in rejects)
+                    {
+                        sw.WriteLine($"{EscapeCsv(reject.Id?.ToString())}," +
+                                   $"{EscapeCsv(reject.StudentName?.ToString())}," +
+                                   $"{EscapeCsv(reject.BookRequested?.ToString())}," +
+                                   $"{EscapeCsv(reject.RequestDate?.ToString())}," +
+                                   $"{EscapeCsv(reject.RejectionDate?.ToString())}," +
+                                   $"{EscapeCsv(reject.Reason?.ToString())}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error exporting rejected: {ex.Message}");
+            }
+        }
+
+        private void ExportReturned(string folder, string dateStamp)
+        {
+            try
+            {
+                string returnedFilePath = DataPathHelper.GetDataFilePath("returned.json");
+                if (!File.Exists(returnedFilePath))
+                    return;
+
+                var json = File.ReadAllText(returnedFilePath);
+                if (string.IsNullOrWhiteSpace(json))
+                {
+                    // Create empty CSV with headers
+                    string csvPath = Path.Combine(folder, $"Returned_{dateStamp}.csv");
+                    using (StreamWriter sw = new StreamWriter(csvPath, false, Encoding.UTF8))
+                    {
+                        sw.WriteLine("ID,Student Name,Book Requested,Request Date,Return Date,Status,Fine Paid,Received By Librarian");
+                    }
+                    return;
+                }
+
+                var returned = Newtonsoft.Json.JsonConvert.DeserializeObject<List<dynamic>>(json) ?? new List<dynamic>();
+
+                string csvPath2 = Path.Combine(folder, $"Returned_{dateStamp}.csv");
+                using (StreamWriter sw = new StreamWriter(csvPath2, false, Encoding.UTF8))
+                {
+                    // Header
+                    sw.WriteLine("ID,Student Name,Book Requested,Request Date,Return Date,Status,Fine Paid,Received By Librarian");
+
+                    // Data rows
+                    foreach (var ret in returned)
+                    {
+                        sw.WriteLine($"{EscapeCsv(ret.Id?.ToString())}," +
+                                   $"{EscapeCsv(ret.StudentName?.ToString())}," +
+                                   $"{EscapeCsv(ret.BookRequested?.ToString())}," +
+                                   $"{EscapeCsv(ret.RequestDate?.ToString())}," +
+                                   $"{EscapeCsv(ret.ReturnDate?.ToString())}," +
+                                   $"{EscapeCsv(ret.Status?.ToString())}," +
+                                   $"{EscapeCsv(ret.FinePaid?.ToString())}," +
+                                   $"{EscapeCsv(ret.ReceivedByLibrarian?.ToString())}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error exporting returned: {ex.Message}");
+            }
+        }
+
+        private string EscapeCsv(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return "";
+
+            // Escape quotes and wrap in quotes if contains comma, quote, or newline
+            if (value.Contains(",") || value.Contains("\"") || value.Contains("\n") || value.Contains("\r"))
+            {
+                return $"\"{value.Replace("\"", "\"\"")}\"";
+            }
+
+            return value;
         }
     }
 }

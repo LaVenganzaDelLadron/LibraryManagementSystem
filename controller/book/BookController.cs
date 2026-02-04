@@ -91,6 +91,34 @@ namespace LibraryManagementSystem.controller.book
             return true;
         }
 
+        public bool UpdateBook(Books updatedBook)
+        {
+            try
+            {
+                var books = LoadBooks();
+                var book = books.FirstOrDefault(b => b.Id == updatedBook.Id);
+                if (book == null)
+                {
+                    return false;
+                }
+
+                book.Title = updatedBook.Title;
+                book.Author = updatedBook.Author;
+                book.PublishedDate = updatedBook.PublishedDate;
+                book.Description = updatedBook.Description;
+                book.Category = updatedBook.Category;
+                book.Copies = updatedBook.Copies;
+
+                SaveBooks(books);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating book: {ex.Message}");
+                return false;
+            }
+        }
+
         public bool UpdateBookCopies(string bookTitle, int change)
         {
             try

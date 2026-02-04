@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controller\admin\ChangePasswordController.cs" />
+    <Compile Include="controller\admin\DisplayProfile.cs" />
+    <Compile Include="controller\admin\EditProfile.cs" />
     <Compile Include="controller\book\BookController.cs" />
     <Compile Include="controller\book\BorrowController.cs" />
     <Compile Include="controller\book\CategoryController.cs" />
@@ -100,11 +103,29 @@
     <Compile Include="view\BorrowingPage.Designer.cs">
       <DependentUpon>BorrowingPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\modal\ChangePasswordPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\modal\ChangePasswordPage.Designer.cs">
+      <DependentUpon>ChangePasswordPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\modal\EditBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\modal\EditBook.Designer.cs">
+      <DependentUpon>EditBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\modal\EditProfilePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\modal\EditProfilePage.Designer.cs">
+      <DependentUpon>EditProfilePage.cs</DependentUpon>
     </Compile>
     <Compile Include="view\HomePage.cs">
       <SubType>Form</SubType>
@@ -163,6 +184,12 @@
     <Compile Include="view\NotificationPage.Designer.cs">
       <DependentUpon>NotificationPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\modal\ProfilePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\modal\ProfilePage.Designer.cs">
+      <DependentUpon>ProfilePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\ReportPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,8 +214,17 @@
     <EmbeddedResource Include="view\BorrowingPage.resx">
       <DependentUpon>BorrowingPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\modal\ChangePasswordPage.resx">
+      <DependentUpon>ChangePasswordPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\modal\EditBook.resx">
+      <DependentUpon>EditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\modal\EditProfilePage.resx">
+      <DependentUpon>EditProfilePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
@@ -223,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\NotificationPage.resx">
       <DependentUpon>NotificationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\modal\ProfilePage.resx">
+      <DependentUpon>ProfilePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\ReportPage.resx">
       <DependentUpon>ReportPage.cs</DependentUpon>
